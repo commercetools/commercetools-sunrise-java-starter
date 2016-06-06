@@ -15,7 +15,7 @@ libraryDependencies ++= Seq(
   javaJdbc,
   cache,
   javaWs,
-  "io.commercetools.sunrise" %% "product-catalog" % "0.7.0-framework-SNAPSHOT"
+  "io.commercetools.sunrise" %% "product-catalog" % "0.7.0-SNAPSHOT"
 )
 
 
