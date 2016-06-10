@@ -60,5 +60,5 @@ copyI18nFiles := Def.inputTaskDyn {
 }.evaluated
 
 def runMainInCompile(dest: String, args: Seq[String]) = Def.taskDyn {
-  (runMain in Compile in `sbt-tasks`).toTask(s" tasks.WebjarsFilesCopier $dest ${args.mkString(" ")}")
+  (runMain in Compile in `sbt-tasks`).toTask(s" com.commercetools.sunrise.theme.WebjarsFilesCopier $dest ${args.mkString(" ")}")
 }
