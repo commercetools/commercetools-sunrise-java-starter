@@ -11,12 +11,27 @@ resolvers ++= Seq (
   Resolver.sonatypeRepo("snapshots")
 )
 
+val sunriseFrameworkVersion = "0.7.0-SNAPSHOT"
+
 libraryDependencies ++= Seq(
-  javaJdbc,
   cache,
   javaWs,
-  "io.commercetools.sunrise" %% "product-catalog" % "0.7.0-SNAPSHOT"
+  "com.commercetools.sunrise" %% "product-catalog" % sunriseFrameworkVersion,
+  "com.commercetools.sunrise" %% "shopping-cart" % sunriseFrameworkVersion,
+  "io.commercetools.sunrise" % "commercetools-sunrise-theme" % "0.56.0",
+  "org.webjars" %% "webjars-play" % "2.5.0-2"
+)
+
+val jacksonVersion = "2.6.0"
+
+//important otherwise we get linked hash maps
+dependencyOverrides ++= Set (
+  "com.fasterxml.jackson.core" % "jackson-annotations" % jacksonVersion,
+  "com.fasterxml.jackson.core" % "jackson-core" % jacksonVersion,
+  "com.fasterxml.jackson.core" % "jackson-databind" % jacksonVersion,
+  "com.fasterxml.jackson.module" % "jackson-module-parameter-names" % jacksonVersion,
+  "com.fasterxml.jackson.datatype" % "jackson-datatype-jsr310" % jacksonVersion
 )
 
 
-fork in run := true
+//fork in run := true

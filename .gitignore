@@ -26,3 +26,5 @@ target
 /.settings
 /RUNNING_PID
 .sbtserver*
+
+dev.conf

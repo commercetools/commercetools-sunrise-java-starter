@@ -2,7 +2,15 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-GET     /                           controllers.HomeController.index
+GET / @controllers.HomeController.index
+GET /:languageTag/home @controllers.HomeController.show(languageTag: String)
+GET /:languageTag/:productSlug-$sku<[^-]+>.html @controllers.ProductDetailPageController.showProductBySlugAndSku(languageTag: String, productSlug: String, sku: String)
+# Shows the search results page
+GET /:languageTag/search @controllers.ProductOverviewPageController.searchProductsBySearchTerm(languageTag: String)
+# Shows the product overview page for this category
+GET /:languageTag/:categorySlug @controllers.ProductOverviewPageController.searchProductsByCategorySlug(languageTag: String, categorySlug: String)
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+GET /assets/public/*file controllers.Assets.versioned(path="/public", file: Asset)
+# Map static resources from WebJars (only CSS, JS, fonts and images) to the /assets URL path
+GET /assets/$file<(css|js|fonts|img)/.*> controllers.WebJarAssets.at(file)
