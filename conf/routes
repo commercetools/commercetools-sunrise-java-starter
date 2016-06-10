@@ -2,7 +2,7 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-GET / @controllers.HomeController.index
+GET / @controllers.HomeController.index()
 GET /:languageTag/home @controllers.HomeController.show(languageTag: String)
 GET /:languageTag/:productSlug-$sku<[^-]+>.html @controllers.ProductDetailPageController.showProductBySlugAndSku(languageTag: String, productSlug: String, sku: String)
 # Shows the search results page
