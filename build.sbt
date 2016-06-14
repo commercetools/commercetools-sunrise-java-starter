@@ -1,12 +1,17 @@
+import play.sbt.PlayImport
 import sbt.complete.DefaultParsers._
 
-name := """sunrise-java-demo"""
+name := "commercetools-sunrise-demo"
 
 version := "0.1.0-SNAPSHOT"
 
-lazy val root = (project in file(".")).enablePlugins(PlayJava)
+scalaVersion := "2.11.8"
 
-scalaVersion := "2.11.7"
+lazy val root = (project in file("."))
+  .enablePlugins(PlayJava)
+  .configs(IntegrationTest, PlayTest)
+  .settings(commonTestSettings)
+
 
 resolvers ++= Seq (
   Resolver.sonatypeRepo("releases"),
@@ -14,19 +19,16 @@ resolvers ++= Seq (
 )
 
 val sunriseFrameworkVersion = "0.7.0-SNAPSHOT"
-
 libraryDependencies ++= Seq(
   cache,
-  javaWs,
   "com.commercetools.sunrise" %% "product-catalog" % sunriseFrameworkVersion,
   "com.commercetools.sunrise" %% "shopping-cart" % sunriseFrameworkVersion,
   "io.commercetools.sunrise" % "commercetools-sunrise-theme" % "0.56.0",
   "org.webjars" %% "webjars-play" % "2.5.0-2"
 )
 
-val jacksonVersion = "2.6.0"
-
 //important otherwise we get linked hash maps
+val jacksonVersion = "2.6.0"
 dependencyOverrides ++= Set (
   "com.fasterxml.jackson.core" % "jackson-annotations" % jacksonVersion,
   "com.fasterxml.jackson.core" % "jackson-core" % jacksonVersion,
@@ -35,6 +37,38 @@ dependencyOverrides ++= Set (
   "com.fasterxml.jackson.datatype" % "jackson-datatype-jsr310" % jacksonVersion
 )
 
+/**
+ * TEST SETTINGS
+ */
+
+lazy val PlayTest = config("pt") extend Test
+
+lazy val commonTestSettings = itBaseTestSettings ++ ptBaseTestSettings ++ configCommonTestSettings("test,it,pt")
+
+lazy val itBaseTestSettings = Defaults.itSettings ++ configTestDirs(IntegrationTest, "it")
+
+lazy val ptBaseTestSettings = inConfig(PlayTest)(Defaults.testSettings) ++ configTestDirs(PlayTest, "pt") ++ Seq (
+  libraryDependencies ++= Seq (
+    javaWs % "pt"
+  )
+)
+
+def configTestDirs(config: Configuration, folderName: String) = Seq(
+  javaSource in config := baseDirectory.value / folderName,
+  scalaSource in config := baseDirectory.value / folderName,
+  resourceDirectory in config := baseDirectory.value / s"$folderName/resources"
+)
+
+def configCommonTestSettings(scopes: String) = Seq(
+  testOptions += Tests.Argument(TestFrameworks.JUnit, "-v"),
+  libraryDependencies ++= Seq (
+    "org.assertj" % "assertj-core" % "3.0.0" % scopes,
+    PlayImport.component("play-test") % scopes
+  ),
+  dependencyOverrides ++= Set (
+    "junit" % "junit" % "4.12" % scopes
+  )
+)
 
 //TODO put it into an sbt plugin
 /**

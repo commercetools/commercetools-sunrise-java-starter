@@ -1,11 +1,16 @@
 import com.commercetools.sunrise.common.controllers.ReverseRouter;
+import com.commercetools.sunrise.common.localization.LocationSelectorControllerComponent;
+import com.commercetools.sunrise.common.pages.DefaultPageNavMenuControllerComponent;
+import com.commercetools.sunrise.common.reverserouter.CheckoutReverseRouter;
+import com.commercetools.sunrise.common.reverserouter.HomeReverseRouter;
+import com.commercetools.sunrise.common.reverserouter.ProductReverseRouter;
+import com.commercetools.sunrise.framework.MultiControllerComponentResolver;
+import com.commercetools.sunrise.framework.MultiControllerComponentResolverBuilder;
+import com.commercetools.sunrise.shoppingcart.MiniCartControllerComponent;
 import com.commercetools.sunrise.shoppingcart.checkout.CheckoutCommonComponent;
 import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
-import framework.MultiControllerComponentResolver;
-import framework.MultiControllerComponentResolverBuilder;
 import routing.ReverseRouterImpl;
-import wedecidelatercommon.*;
 
 import javax.inject.Singleton;
 
@@ -34,7 +39,7 @@ public class Module extends AbstractModule {
         return new MultiControllerComponentResolverBuilder()
                 .add(CheckoutCommonComponent.class, controller -> controller.getFrameworkTags().contains("checkout"))
                 .add(MiniCartControllerComponent.class, controller -> !controller.getFrameworkTags().contains("checkout"))
-                .add(DefaultNavMenuControllerComponent.class, controller -> !controller.getFrameworkTags().contains("checkout"))
+                .add(DefaultPageNavMenuControllerComponent.class, controller -> !controller.getFrameworkTags().contains("checkout"))
                 .add(LocationSelectorControllerComponent.class, controller -> !controller.getFrameworkTags().contains("checkout"))
                 .build();
     }

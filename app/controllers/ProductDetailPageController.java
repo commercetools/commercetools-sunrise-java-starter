@@ -1,6 +1,6 @@
 package controllers;
 
-import com.commercetools.sunrise.common.inject.RequestScoped;
+import com.commercetools.sunrise.common.contexts.RequestScoped;
 import com.commercetools.sunrise.productcatalog.productdetail.SunriseProductDetailPageController;
 import com.commercetools.sunrise.productcatalog.productsuggestions.ProductSuggestionsControllerComponent;
 

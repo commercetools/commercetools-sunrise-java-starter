@@ -1,7 +1,6 @@
 package controllers;
 
-
-import com.commercetools.sunrise.common.inject.RequestScoped;
+import com.commercetools.sunrise.common.contexts.RequestScoped;
 import com.commercetools.sunrise.productcatalog.productoverview.SunriseProductOverviewPageController;
 import com.commercetools.sunrise.productcatalog.productoverview.search.facetedsearch.FacetedSearchComponent;
 import com.commercetools.sunrise.productcatalog.productoverview.search.pagination.PaginationComponent;
