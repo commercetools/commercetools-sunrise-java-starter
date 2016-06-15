@@ -28,7 +28,7 @@ libraryDependencies ++= Seq(
 )
 
 //important otherwise we get linked hash maps
-val jacksonVersion = "2.6.0"
+val jacksonVersion = "2.7.5"
 dependencyOverrides ++= Set (
   "com.fasterxml.jackson.core" % "jackson-annotations" % jacksonVersion,
   "com.fasterxml.jackson.core" % "jackson-core" % jacksonVersion,
