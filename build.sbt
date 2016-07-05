@@ -15,7 +15,8 @@ lazy val root = (project in file("."))
 
 resolvers ++= Seq (
   Resolver.sonatypeRepo("releases"),
-  Resolver.sonatypeRepo("snapshots")
+  Resolver.sonatypeRepo("snapshots"),
+  Resolver.bintrayRepo("commercetools", "maven")
 )
 
 val sunriseFrameworkVersion = "0.7.0-SNAPSHOT"
