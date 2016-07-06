@@ -1,7 +1,7 @@
 import play.sbt.PlayImport
 import sbt.complete.DefaultParsers._
 
-name := "commercetools-sunrise-demo"
+name := "commercetools-sunrise-java-training"
 
 version := "0.1.0-SNAPSHOT"
 
@@ -19,12 +19,12 @@ resolvers ++= Seq (
   Resolver.bintrayRepo("commercetools", "maven")
 )
 
-val sunriseFrameworkVersion = "0.7.0-SNAPSHOT"
+val sunriseFrameworkVersion = "0.7.0-x4-SNAPSHOT"
 libraryDependencies ++= Seq(
   cache,
   "com.commercetools.sunrise" %% "product-catalog" % sunriseFrameworkVersion,
   "com.commercetools.sunrise" %% "shopping-cart" % sunriseFrameworkVersion,
-  "io.commercetools.sunrise" % "commercetools-sunrise-theme" % "0.56.0",
+  "com.commercetools.sunrise" % "commercetools-sunrise-theme" % "0.59.0",
   "org.webjars" %% "webjars-play" % "2.5.0-2"
 )
 

@@ -4,11 +4,11 @@
 
 GET / @controllers.HomeController.index()
 GET /:languageTag/home @controllers.HomeController.show(languageTag: String)
-GET /:languageTag/:productSlug-$sku<[^-]+>.html @controllers.ProductDetailPageController.showProductBySlugAndSku(languageTag: String, productSlug: String, sku: String)
+GET /:languageTag/:productSlug-$sku<[^-]+>.html @controllers.ProductDetailController.showProductBySlugAndSku(languageTag: String, productSlug: String, sku: String)
 # Shows the search results page
-GET /:languageTag/search @controllers.ProductOverviewPageController.searchProductsBySearchTerm(languageTag: String)
+GET /:languageTag/search @controllers.ProductOverviewController.searchProductsBySearchTerm(languageTag: String)
 # Shows the product overview page for this category
-GET /:languageTag/:categorySlug @controllers.ProductOverviewPageController.searchProductsByCategorySlug(languageTag: String, categorySlug: String)
+GET /:languageTag/:categorySlug @controllers.ProductOverviewController.searchProductsByCategorySlug(languageTag: String, categorySlug: String)
 
 # Map static resources from the /public folder to the /assets URL path
 GET /assets/public/*file controllers.Assets.versioned(path="/public", file: Asset)

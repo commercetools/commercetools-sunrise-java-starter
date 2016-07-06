@@ -1,13 +1,11 @@
 package routing;
 
 import com.commercetools.sunrise.common.controllers.ReverseRouter;
-import com.commercetools.sunrise.common.reverserouter.CheckoutReverseRouter;
-import com.commercetools.sunrise.common.reverserouter.HomeReverseRouter;
-import com.commercetools.sunrise.common.reverserouter.ProductReverseRouter;
+import com.commercetools.sunrise.common.reverserouter.*;
 import io.sphere.sdk.models.Base;
 import play.mvc.Call;
 
-public class ReverseRouterImpl extends Base implements ReverseRouter, HomeReverseRouter, ProductReverseRouter, CheckoutReverseRouter {
+public class ReverseRouterImpl extends Base implements ReverseRouter, HomeReverseRouter, ProductReverseRouter, CheckoutReverseRouter, CartReverseRouter, MyOrdersReverseRouter, MyPersonalDetailsReverseRouter, AddressBookReverseRouter {
     @Override
     public Call themeAssets(final String file) {
         return controllers.routes.WebJarAssets.at(file);
@@ -30,36 +28,36 @@ public class ReverseRouterImpl extends Base implements ReverseRouter, HomeRevers
 
     @Override
     public Call productOverviewPageCall(final String languageTag, final String categorySlug) {
-        return controllers.routes.ProductOverviewPageController.searchProductsByCategorySlug(languageTag, categorySlug);
+        return controllers.routes.ProductOverviewController.searchProductsByCategorySlug(languageTag, categorySlug);
     }
 
     @Override
     public Call processSearchProductsForm(final String languageTag) {
-        return controllers.routes.ProductOverviewPageController.searchProductsBySearchTerm(languageTag);
+        return controllers.routes.ProductOverviewController.searchProductsBySearchTerm(languageTag);
     }
 
     @Override
     public Call productDetailPageCall(final String languageTag, final String productSlug, final String sku) {
-        return controllers.routes.ProductDetailPageController.showProductBySlugAndSku(languageTag, productSlug, sku);
+        return controllers.routes.ProductDetailController.showProductBySlugAndSku(languageTag, productSlug, sku);
     }
 
     @Override
-    public Call showCart(final String languageTag) {
+    public Call processLogInForm(final String languageTag) {
         return indexCall();
     }
 
     @Override
-    public Call processAddProductToCartForm(final String languageTag) {
+    public Call showLogInForm(final String languageTag) {
         return indexCall();
     }
 
     @Override
-    public Call processDeleteLineItemForm(final String languageTag) {
+    public Call processSignUpForm(final String languageTag) {
         return indexCall();
     }
 
     @Override
-    public Call processChangeLineItemQuantityForm(final String languageTag) {
+    public Call processLogOut(final String languageTag) {
         return indexCall();
     }
 
@@ -109,42 +107,72 @@ public class ReverseRouterImpl extends Base implements ReverseRouter, HomeRevers
     }
 
     @Override
-    public Call showLogInForm(final String languageTag) {
+    public Call addAddressToAddressBookCall(final String languageTag) {
         return indexCall();
     }
 
     @Override
-    public Call processLogInForm(final String languageTag) {
+    public Call addressBookCall(final String languageTag) {
         return indexCall();
     }
 
     @Override
-    public Call processSignUpForm(final String languageTag) {
+    public Call addAddressToAddressBookProcessFormCall(final String languageTag) {
         return indexCall();
     }
 
     @Override
-    public Call processLogOut(final String languageTag) {
+    public Call changeAddressInAddressBookCall(final String languageTag, final String addressId) {
         return indexCall();
     }
 
     @Override
-    public Call showMyPersonalDetailsForm(final String languageTag) {
+    public Call changeAddressInAddressBookProcessFormCall(final String languageTag, final String addressId) {
         return indexCall();
     }
 
     @Override
-    public Call processMyPersonalDetailsForm(final String languageTag) {
+    public Call removeAddressFromAddressBookProcessFormCall(final String languageTag, final String addressId) {
         return indexCall();
     }
 
     @Override
-    public Call showMyOrders(final String languageTag) {
+    public Call showCart(final String languageTag) {
         return indexCall();
     }
 
     @Override
-    public Call showMyOrder(final String languageTag, final String orderNumber) {
+    public Call processAddProductToCartForm(final String languageTag) {
+        return indexCall();
+    }
+
+    @Override
+    public Call processDeleteLineItemForm(final String languageTag) {
+        return indexCall();
+    }
+
+    @Override
+    public Call processChangeLineItemQuantityForm(final String languageTag) {
+        return indexCall();
+    }
+
+    @Override
+    public Call myOrderListPageCall(final String languageTag) {
+        return indexCall();
+    }
+
+    @Override
+    public Call myOrderDetailPageCall(final String languageTag, final String orderNumber) {
+        return indexCall();
+    }
+
+    @Override
+    public Call myPersonalDetailsPageCall(final String languageTag) {
+        return indexCall();
+    }
+
+    @Override
+    public Call myPersonalDetailsProcessFormCall(final String languageTag) {
         return indexCall();
     }
 

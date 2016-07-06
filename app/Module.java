@@ -1,13 +1,11 @@
 import com.commercetools.sunrise.common.controllers.ReverseRouter;
 import com.commercetools.sunrise.common.localization.LocationSelectorControllerComponent;
 import com.commercetools.sunrise.common.pages.DefaultPageNavMenuControllerComponent;
-import com.commercetools.sunrise.common.reverserouter.CheckoutReverseRouter;
-import com.commercetools.sunrise.common.reverserouter.HomeReverseRouter;
-import com.commercetools.sunrise.common.reverserouter.ProductReverseRouter;
+import com.commercetools.sunrise.common.reverserouter.*;
 import com.commercetools.sunrise.framework.MultiControllerComponentResolver;
 import com.commercetools.sunrise.framework.MultiControllerComponentResolverBuilder;
 import com.commercetools.sunrise.shoppingcart.MiniCartControllerComponent;
-import com.commercetools.sunrise.shoppingcart.checkout.CheckoutCommonComponent;
+import com.commercetools.sunrise.shoppingcart.common.CheckoutCommonComponent;
 import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
 import routing.ReverseRouterImpl;
@@ -31,6 +29,10 @@ public class Module extends AbstractModule {
         bind(ProductReverseRouter.class).to(ReverseRouterImpl.class).in(Singleton.class);
         bind(CheckoutReverseRouter.class).to(ReverseRouterImpl.class).in(Singleton.class);
         bind(HomeReverseRouter.class).to(ReverseRouterImpl.class).in(Singleton.class);
+        bind(AddressBookReverseRouter.class).to(ReverseRouterImpl.class).in(Singleton.class);
+        bind(CartReverseRouter.class).to(ReverseRouterImpl.class).in(Singleton.class);
+        bind(MyOrdersReverseRouter.class).to(ReverseRouterImpl.class).in(Singleton.class);
+        bind(MyPersonalDetailsReverseRouter.class).to(ReverseRouterImpl.class).in(Singleton.class);
     }
 
     @Provides
