@@ -19,7 +19,7 @@ resolvers ++= Seq (
   Resolver.bintrayRepo("commercetools", "maven")
 )
 
-val sunriseFrameworkVersion = "0.7.0-x4-SNAPSHOT"
+val sunriseFrameworkVersion = "0.7.0-x5-SNAPSHOT"
 libraryDependencies ++= Seq(
   cache,
   "com.commercetools.sunrise" %% "product-catalog" % sunriseFrameworkVersion,
