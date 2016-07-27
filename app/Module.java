@@ -1,3 +1,5 @@
+import com.commercetools.sunrise.cms.CmsService;
+import com.commercetools.sunrise.cms.contentful.ContentfulCmsService;
 import com.commercetools.sunrise.common.controllers.ReverseRouter;
 import com.commercetools.sunrise.common.localization.LocationSelectorControllerComponent;
 import com.commercetools.sunrise.common.pages.DefaultPageNavMenuControllerComponent;
@@ -33,6 +35,7 @@ public class Module extends AbstractModule {
         bind(CartReverseRouter.class).to(ReverseRouterImpl.class).in(Singleton.class);
         bind(MyOrdersReverseRouter.class).to(ReverseRouterImpl.class).in(Singleton.class);
         bind(MyPersonalDetailsReverseRouter.class).to(ReverseRouterImpl.class).in(Singleton.class);
+        bind(CmsService.class).toInstance(ContentfulCmsService.of("", "", "", ""));
     }
 
     @Provides
