@@ -5,6 +5,13 @@ import com.commercetools.sunrise.common.reverserouter.*;
 import io.sphere.sdk.models.Base;
 import play.mvc.Call;
 
+import common.routes.*;
+import myaccount.routes.*;
+import productcatalog.routes.*;
+import shoppingcart.routes.*;
+import controllers.routes.*;
+import productcatalog.routes;
+
 public class ReverseRouterImpl extends Base implements ReverseRouter, HomeReverseRouter, ProductReverseRouter, CheckoutReverseRouter, CartReverseRouter, MyOrdersReverseRouter, MyPersonalDetailsReverseRouter, AddressBookReverseRouter {
     @Override
     public Call themeAssets(final String file) {
@@ -23,22 +30,22 @@ public class ReverseRouterImpl extends Base implements ReverseRouter, HomeRevers
 
     @Override
     public Call homePageCall(final String languageTag) {
-        return controllers.routes.HomeController.show(languageTag);
+        return routes.HomeController.show(languageTag);
     }
 
     @Override
     public Call productOverviewPageCall(final String languageTag, final String categorySlug) {
-        return controllers.routes.ProductOverviewController.searchProductsByCategorySlug(languageTag, categorySlug);
+        return routes.ProductOverviewController.searchProductsByCategorySlug(languageTag, categorySlug);
     }
 
     @Override
     public Call processSearchProductsForm(final String languageTag) {
-        return controllers.routes.ProductOverviewController.searchProductsBySearchTerm(languageTag);
+        return routes.ProductOverviewController.searchProductsBySearchTerm(languageTag);
     }
 
     @Override
     public Call productDetailPageCall(final String languageTag, final String productSlug, final String sku) {
-        return controllers.routes.ProductDetailController.showProductBySlugAndSku(languageTag, productSlug, sku);
+        return routes.ProductDetailController.showProductBySlugAndSku(languageTag, productSlug, sku);
     }
 
     @Override
@@ -177,6 +184,6 @@ public class ReverseRouterImpl extends Base implements ReverseRouter, HomeRevers
     }
 
     private Call indexCall() {
-        return controllers.routes.HomeController.index();
+        return routes.HomeController.index();
     }
 }

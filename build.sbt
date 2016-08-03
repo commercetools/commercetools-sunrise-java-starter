@@ -7,7 +7,7 @@ version := "0.1.0-SNAPSHOT"
 
 scalaVersion := "2.11.8"
 
-val sunriseFrameworkVersion = "0.8.0"
+val sunriseFrameworkVersion = "0.9.0"
 
 lazy val root = (project in file("."))
   .enablePlugins(PlayJava)
@@ -25,6 +25,9 @@ libraryDependencies ++= Seq(
   cache,
   "com.commercetools.sunrise" %% "product-catalog" % sunriseFrameworkVersion,
   "com.commercetools.sunrise" %% "shopping-cart" % sunriseFrameworkVersion,
+  "com.commercetools.sunrise" %% "common" % sunriseFrameworkVersion,
+  "com.commercetools.sunrise" %% "my-account" % sunriseFrameworkVersion,
+  "com.commercetools.sunrise" %% "setup-widget" % sunriseFrameworkVersion,
   "com.commercetools.sunrise" % "commercetools-sunrise-theme" % "0.59.0",
   "org.webjars" %% "webjars-play" % "2.5.0-2"
 )
