@@ -1,16 +1,142 @@
-# Routes
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-GET / @controllers.HomeController.index()
-GET /:languageTag/home @controllers.HomeController.show(languageTag: String)
-GET /:languageTag/:productSlug-$sku<[^-]+>.html @controllers.ProductDetailController.showProductBySlugAndSku(languageTag: String, productSlug: String, sku: String)
-# Shows the search results page
-GET /:languageTag/search @controllers.ProductOverviewController.searchProductsBySearchTerm(languageTag: String)
-# Shows the product overview page for this category
-GET /:languageTag/:categorySlug @controllers.ProductOverviewController.searchProductsByCategorySlug(languageTag: String, categorySlug: String)
+# Untrail url
+GET         /*path/                                            @common.ApplicationController.untrail(path: String)
 
-# Map static resources from the /public folder to the /assets URL path
-GET /assets/public/*file controllers.Assets.versioned(path="/public", file: Asset)
+# Main entry point that decides whether to go to home page or to setup wizard
+GET         /                                                  @productcatalog.HomeController.index()
+
+# ADMIN
+# ~~~~~
+
+# Shows the deployed version, artifactId and GIT SHA
+GET         /version                                           @common.StatusController.showVersion()
+# Shows if the application is healthy
+GET         /health                                            @common.StatusController.showHealth()
+
+# Endpoint to manually refresh category tree (otherwise an app restart is required)
+GET         /categories/refresh                                @com.commercetools.sunrise.common.categorytree.CategoriesRefreshController.refresh()
+
+
+# WEB ASSETS
+# ~~~~~
+
+# Map static favicon.ico from WebJars to root folder
+GET         /favicon.ico                                       controllers.WebJarAssets.at(file="img/favicon.ico")
+# Map static resources from the /public folder to the /assets/public URL path
+GET         /assets/public/*file                               controllers.Assets.at(path="/public", file)
 # Map static resources from WebJars (only CSS, JS, fonts and images) to the /assets URL path
-GET /assets/$file<(css|js|fonts|img)/.*> controllers.WebJarAssets.at(file)
+GET         /assets/$file<(css|js|fonts|img)/.*>               controllers.WebJarAssets.at(file)
+
+
+# HOME
+# ~~~~~
+
+# Home page
+GET         /:languageTag/home                                  @productcatalog.HomeController.show(languageTag: String)
+
+
+# LOCATION
+# ~~~~~
+
+# Changes the language of the app
+POST        /changeLanguage                                    @common.LocalizationController.changeLanguage()
+# Changes the country of the app
+POST        /:languageTag/changeCountry                        @common.LocalizationController.changeCountry(languageTag: String)
+
+
+# CART
+# ~~~~~
+
+# Shows the details of the cart belonging to the current session
+GET         /:languageTag/cart                                 @shoppingcart.CartDetailController.show(languageTag: String)
+# Adds the selected product to the cart
+POST        /:languageTag/cart/add                             @shoppingcart.AddProductToCartController.addProductToCart(languageTag: String)
+# Changes the quantity of a selected line item from the cart of the current session
+POST        /:languageTag/cart/quantity                        @shoppingcart.ChangeLineItemQuantityController.changeLineItemQuantity(languageTag: String)
+# Removes a selected line item from the cart of the current session
+POST        /:languageTag/cart/remove                          @shoppingcart.RemoveLineItemController.removeLineItem(languageTag: String)
+
+
+# CHECKOUT
+# ~~~~~
+
+# Shows the form to enter shipping address and billing address
+GET         /:languageTag/checkout/address                     @shoppingcart.CheckoutAddressController.show(languageTag: String)
+# Processes the form of the shipping address and billing address
+POST        /:languageTag/checkout/address                     @shoppingcart.CheckoutAddressController.process(languageTag: String)
+# Shows the form to enter shipping address and billing address
+GET         /:languageTag/checkout/shipping                    @shoppingcart.CheckoutShippingController.show(languageTag: String)
+# Processes the form of the shipping address and billing address
+POST        /:languageTag/checkout/shipping                    @shoppingcart.CheckoutShippingController.process(languageTag: String)
+# Shows a form to select the payment method
+GET         /:languageTag/checkout/payment                     @shoppingcart.CheckoutPaymentController.show(languageTag: String)
+# Processes the form for selecting a payment method
+POST        /:languageTag/checkout/payment                     @shoppingcart.CheckoutPaymentController.process(languageTag: String)
+# Shows the form to create an order out of the cart of the session
+GET         /:languageTag/checkout/confirmation                @shoppingcart.CheckoutConfirmationController.show(languageTag: String)
+# Processes the order creation
+POST        /:languageTag/checkout/confirmation                @shoppingcart.CheckoutConfirmationController.process(languageTag: String)
+# Shows the customer a confirmation for the created order
+GET         /:languageTag/checkout/thankyou                    @shoppingcart.CheckoutThankYouController.show(languageTag: String)
+
+
+# SIGN UP/IN/OUT
+# ~~~~~
+
+# Shows log in form
+GET         /:languageTag/user/login                           @myaccount.LogInController.show(languageTag: String)
+# Logs in the user
+POST        /:languageTag/user/login                           @myaccount.LogInController.process(languageTag: String)
+# Logs out the user
+GET         /:languageTag/user/logout                          @myaccount.LogOutController.process(languageTag: String)
+# Registers the user
+POST        /:languageTag/user/register                        @myaccount.SignUpController.process(languageTag: String)
+
+
+# MY ACCOUNT
+# ~~~~~
+
+# Shows a form for updating the customer's details
+GET         /:languageTag/user                                 @myaccount.MyPersonalDetailsController.show(languageTag: String)
+# Processes the form for updating the customer's details
+POST        /:languageTag/user                                 @myaccount.MyPersonalDetailsController.process(languageTag: String)
+
+
+# Shows the address book
+GET         /:languageTag/user/addressbook                     @myaccount.AddressBookController.show(languageTag: String)
+# Shows the form to add an address to the customer's address book
+GET         /:languageTag/user/addressbook/add                 @myaccount.AddAddressController.show(languageTag: String)
+# Adds an address to the customer's address book
+POST        /:languageTag/user/addressbook/add                 @myaccount.AddAddressController.process(languageTag: String)
+# Shows the form to edit an address from the customer's address book
+GET         /:languageTag/user/addressbook/:addressId/edit     @myaccount.ChangeAddressController.show(languageTag: String, addressId: String)
+# Updates an address from the customer's address book
+POST        /:languageTag/user/addressbook/:addressId/edit     @myaccount.ChangeAddressController.process(languageTag: String, addressId: String)
+# Removes an address from the customer's address book
+POST        /:languageTag/user/addressbook/:addressId/remove   @myaccount.RemoveAddressController.process(languageTag: String, addressId: String)
+
+
+# Shows all orders from the customer
+GET         /:languageTag/user/orders                          @myaccount.MyOrderListController.show(languageTag: String)
+# Show an order from the customer
+GET         /:languageTag/user/orders/:orderNumber             @myaccount.MyOrderDetailController.showByOrderNumber(languageTag: String, orderNumber: String)
+
+
+# PRODUCT DETAIL
+# ~~~~~
+
+# Shows the product detail page
+GET         /:languageTag/:productSlug-$sku<[^-]+>.html        @productcatalog.ProductDetailController.showProductBySlugAndSku(languageTag: String, productSlug: String, sku: String)
+# TODO framework remove this route
+GET         /:languageTag/:productId/:variantId                @productcatalog.ProductDetailController.showProductByProductIdAndVariantId(languageTag: String, productId: String, variantId: Int)
+
+
+# PRODUCT OVERVIEW
+# ~~~~~
+
+# Shows the search results page
+GET         /:languageTag/search                               @productcatalog.ProductOverviewController.searchProductsBySearchTerm(languageTag: String)
+# Shows the product overview page for this category
+GET         /:languageTag/:categorySlug                        @productcatalog.ProductOverviewController.searchProductsByCategorySlug(languageTag: String, categorySlug: String)

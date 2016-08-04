@@ -1,4 +1,4 @@
-package controllers;
+package productcatalog;
 
 import com.commercetools.sunrise.common.contexts.RequestScoped;
 import com.commercetools.sunrise.productcatalog.productoverview.SunriseProductOverviewController;
