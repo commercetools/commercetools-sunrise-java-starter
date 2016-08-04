@@ -41,22 +41,22 @@ GET         /:languageTag/home                                  @productcatalog.
 # ~~~~~
 
 # Changes the language of the app
-#POST        /changeLanguage                                    @common.LocalizationController.changeLanguage()
+POST        /changeLanguage                                    @common.LocalizationController.changeLanguage()
 # Changes the country of the app
-#POST        /:languageTag/changeCountry                        @common.LocalizationController.changeCountry(languageTag: String)
+POST        /:languageTag/changeCountry                        @common.LocalizationController.changeCountry(languageTag: String)
 
 
 # CART
 # ~~~~~
 
 # Shows the details of the cart belonging to the current session
-#GET         /:languageTag/cart                                 @shoppingcart.CartDetailController.show(languageTag: String)
+GET         /:languageTag/cart                                 @shoppingcart.CartDetailController.show(languageTag: String)
 # Adds the selected product to the cart
-#POST        /:languageTag/cart/add                             @shoppingcart.AddProductToCartController.addProductToCart(languageTag: String)
+POST        /:languageTag/cart/add                             @shoppingcart.AddProductToCartController.addProductToCart(languageTag: String)
 # Changes the quantity of a selected line item from the cart of the current session
-#POST        /:languageTag/cart/quantity                        @shoppingcart.ChangeLineItemQuantityController.changeLineItemQuantity(languageTag: String)
+POST        /:languageTag/cart/quantity                        @shoppingcart.ChangeLineItemQuantityController.changeLineItemQuantity(languageTag: String)
 # Removes a selected line item from the cart of the current session
-#POST        /:languageTag/cart/remove                          @shoppingcart.RemoveLineItemController.removeLineItem(languageTag: String)
+POST        /:languageTag/cart/remove                          @shoppingcart.RemoveLineItemController.removeLineItem(languageTag: String)
 
 
 # CHECKOUT
@@ -99,29 +99,29 @@ POST        /:languageTag/user/register                        @myaccount.SignUp
 # ~~~~~
 
 # Shows a form for updating the customer's details
-#GET         /:languageTag/user                                 @myaccount.MyPersonalDetailsController.show(languageTag: String)
+GET         /:languageTag/user                                 @myaccount.MyPersonalDetailsController.show(languageTag: String)
 # Processes the form for updating the customer's details
-#POST        /:languageTag/user                                 @myaccount.MyPersonalDetailsController.process(languageTag: String)
+POST        /:languageTag/user                                 @myaccount.MyPersonalDetailsController.process(languageTag: String)
 
 
 # Shows the address book
-#GET         /:languageTag/user/addressbook                     @myaccount.AddressBookController.show(languageTag: String)
+GET         /:languageTag/user/addressbook                     @myaccount.AddressBookController.show(languageTag: String)
 # Shows the form to add an address to the customer's address book
-#GET         /:languageTag/user/addressbook/add                 @myaccount.AddAddressController.show(languageTag: String)
+GET         /:languageTag/user/addressbook/add                 @myaccount.AddAddressController.show(languageTag: String)
 # Adds an address to the customer's address book
-#POST        /:languageTag/user/addressbook/add                 @myaccount.AddAddressController.process(languageTag: String)
+POST        /:languageTag/user/addressbook/add                 @myaccount.AddAddressController.process(languageTag: String)
 # Shows the form to edit an address from the customer's address book
-#GET         /:languageTag/user/addressbook/:addressId/edit     @myaccount.ChangeAddressController.show(languageTag: String, addressId: String)
+GET         /:languageTag/user/addressbook/:addressId/edit     @myaccount.ChangeAddressController.show(languageTag: String, addressId: String)
 # Updates an address from the customer's address book
-#POST        /:languageTag/user/addressbook/:addressId/edit     @myaccount.ChangeAddressController.process(languageTag: String, addressId: String)
+POST        /:languageTag/user/addressbook/:addressId/edit     @myaccount.ChangeAddressController.process(languageTag: String, addressId: String)
 # Removes an address from the customer's address book
-#POST        /:languageTag/user/addressbook/:addressId/remove   @myaccount.RemoveAddressController.process(languageTag: String, addressId: String)
+POST        /:languageTag/user/addressbook/:addressId/remove   @myaccount.RemoveAddressController.process(languageTag: String, addressId: String)
 
 
 # Shows all orders from the customer
-#GET         /:languageTag/user/orders                          @myaccount.MyOrderListController.show(languageTag: String)
+GET         /:languageTag/user/orders                          @myaccount.MyOrderListController.show(languageTag: String)
 # Show an order from the customer
-#GET         /:languageTag/user/orders/:orderNumber             @myaccount.MyOrderDetailController.showByOrderNumber(languageTag: String, orderNumber: String)
+GET         /:languageTag/user/orders/:orderNumber             @myaccount.MyOrderDetailController.showByOrderNumber(languageTag: String, orderNumber: String)
 
 
 # PRODUCT DETAIL
