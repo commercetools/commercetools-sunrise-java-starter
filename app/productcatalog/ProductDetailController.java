@@ -8,6 +8,7 @@ import javax.inject.Inject;
 
 @RequestScoped
 public class ProductDetailController extends SunriseProductDetailController {
+
     @Inject
     public void setSuggestionsComponent(final ProductSuggestionsControllerComponent component) {
         registerControllerComponent(component);
