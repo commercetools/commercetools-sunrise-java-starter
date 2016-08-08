@@ -1,2 +1,2 @@
-# commercetools-sunrise-java-demo
+# Sunrise Java Blank Project
 Sunrise template shop using Sunrise Framework
