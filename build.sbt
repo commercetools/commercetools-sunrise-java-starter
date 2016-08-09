@@ -1,7 +1,7 @@
 import play.sbt.PlayImport
 import sbt.complete.DefaultParsers._
 
-name := "commercetools-sunrise-java-blank"
+name := "commercetools-sunrise-java-starter"
 
 version := "0.1.0-SNAPSHOT"
 
