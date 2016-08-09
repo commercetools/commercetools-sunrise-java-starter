@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/commercetools/commercetools-sunrise-java-starter.png?branch=master)](https://travis-ci.org/commercetools/commercetools-sunrise-java-starter) [![Stories in Ready](https://badge.waffle.io/commercetools/commercetools-sunrise-java-starter.png?label=ready&title=Ready)](https://waffle.io/commercetools/commercetools-sunrise-java-starter)
+[![Build Status](https://travis-ci.org/commercetools/commercetools-sunrise-java-starter.svg?branch=master)](https://travis-ci.org/commercetools/commercetools-sunrise-java-starter)
 
 # Sunrise Java Starter Project
 Sunrise-based project using:
