@@ -1,4 +1,6 @@
 # Sunrise Java Starter Project
+[![Build Status](https://travis-ci.org/commercetools/commercetools-sunrise-java-starter.svg?branch=master)](https://travis-ci.org/commercetools/commercetools-sunrise-java-starter)
+
 Sunrise-based project using:
 - [Sunrise Framework](https://github.com/commercetools/commercetools-sunrise-java)
 - [Sunrise Theme](https://github.com/commercetools/commercetools-sunrise-theme)
