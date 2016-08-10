@@ -1,0 +1,1 @@
+web: target/universal/stage/bin/commercetools-sunrise-java-starter -Dconfig.resource=prod.conf -Dhttp.port=${PORT}
