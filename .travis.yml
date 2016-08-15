@@ -20,5 +20,5 @@ env:
   - SBT_OPTS="-XX:PermSize=512M -XX:MaxPermSize=1024M"
 notifications:
   email:
-    on_success: never
-    on_failure: change
+   on_success: never
+   on_failure: change
