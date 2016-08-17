@@ -19,7 +19,7 @@ Use it as the starting point to develop your own online shop project.
 
 First, put the credentials of your commercetools platform project in `conf/dev.conf` as follows:
 
-```
+```properties
 ctp.projectKey = your-project-key
 ctp.clientId = your-client-id
 ctp.clientSecret = your-client-secret
