@@ -11,7 +11,13 @@ Use it as the starting point to develop your own online shop project.
 ## Preconditions
 
 * Install [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-* Create a commercetools platform project and put the credentials in `dev.conf`
+* Create a commercetools platform project and put the credentials in `conf/dev.conf` as follows:
+
+  ```
+  ctp.projectKey = your-project-key
+  ctp.clientId = your-client-id
+  ctp.clientSecret = your-client-secret
+  ```
 
 ## Run it locally
 
