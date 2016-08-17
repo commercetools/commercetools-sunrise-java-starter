@@ -11,15 +11,19 @@ Use it as the starting point to develop your own online shop project.
 ## Preconditions
 
 * Install [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-* Create a [commercetools platform project](https://admin.sphere.io/en/signup) and put the credentials in `conf/dev.conf` as follows:
-
-  ```
-  ctp.projectKey = your-project-key
-  ctp.clientId = your-client-id
-  ctp.clientSecret = your-client-secret
-  ```
+* Create a [commercetools platform project](https://admin.sphere.io/en/signup) with some data
+* Unless you modify the project to behave differently:
+  * Product variants must contain a SKU without dashes `-`
 
 ## Run it locally
+
+First, put the credentials of your commercetools platform project in `conf/dev.conf` as follows:
+
+```
+ctp.projectKey = your-project-key
+ctp.clientId = your-client-id
+ctp.clientSecret = your-client-secret
+```
 
 If you have [SBT](http://www.scala-sbt.org/) on your computer you can run it with `sbt ~run`. Otherwise you can use the [Activator](https://www.lightbend.com/community/core-tools/activator-and-sbt) found in the project to run it locally:
 
