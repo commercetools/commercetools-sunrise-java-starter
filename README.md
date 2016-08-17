@@ -39,7 +39,7 @@ In any case, the output will be similar to:
 (Server started, use Ctrl+D to stop and go back to the console...)
 ```
 
-Now open <a href="http://localhost:9000">http://localhost:9000</a> in your browser and you are ready to go!
+Now open <a href="http://localhost:9000">http://localhost:9000</a> in your browser and you should be able to access the web application using your project.
 
 ## Deployment
 
