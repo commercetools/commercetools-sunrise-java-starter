@@ -14,7 +14,6 @@ lazy val root = (project in file("."))
   .configs(IntegrationTest, PlayTest)
   .settings(commonTestSettings)
 
-
 resolvers ++= Seq (
   Resolver.sonatypeRepo("releases"),
   Resolver.sonatypeRepo("snapshots"),
