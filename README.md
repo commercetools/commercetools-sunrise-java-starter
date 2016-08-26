@@ -10,7 +10,7 @@ Use it as the starting point to develop your own online shop project.
 
 ## Preconditions
 
-* Install [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* Install [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (version >= 1.8.0_92)
 * Create a [commercetools platform project](https://admin.sphere.io/en/signup) with some data
 * Unless you modify the project to behave differently:
   * Product variants must contain a SKU without dashes `-`
