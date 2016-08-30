@@ -7,13 +7,12 @@ version := "0.1.0-SNAPSHOT"
 
 scalaVersion := "2.11.8"
 
-val sunriseFrameworkVersion = "0.9.0"
+val sunriseFrameworkVersion = "0.11.0"
 
 lazy val root = (project in file("."))
   .enablePlugins(PlayJava)
   .configs(IntegrationTest, PlayTest)
   .settings(commonTestSettings)
-
 
 resolvers ++= Seq (
   Resolver.sonatypeRepo("releases"),
@@ -27,7 +26,7 @@ libraryDependencies ++= Seq(
   "com.commercetools.sunrise" %% "shopping-cart" % sunriseFrameworkVersion,
   "com.commercetools.sunrise" %% "my-account" % sunriseFrameworkVersion,
   "com.commercetools.sunrise" %% "sbt-tasks" % sunriseFrameworkVersion,
-  "com.commercetools.sunrise" % "commercetools-sunrise-theme" % "0.60.0",
+  "com.commercetools.sunrise" % "commercetools-sunrise-theme" % "0.61.1",
   "org.webjars" %% "webjars-play" % "2.5.0-2"
 )
 

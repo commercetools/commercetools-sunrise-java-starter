@@ -13,13 +13,22 @@ import javax.inject.Inject;
 public class ProductOverviewController extends SunriseProductOverviewController {
 
     @Inject
-    public void setComponents(final SortSelectorComponent sortSelectorComponent,
-                              final PaginationComponent paginationComponent,
-                              final SearchBoxComponent searchBoxComponent,
-                              final FacetedSearchComponent facetedSearchComponent) {
-        registerControllerComponent(sortSelectorComponent);
-        registerControllerComponent(paginationComponent);
-        registerControllerComponent(searchBoxComponent);
-        registerControllerComponent(facetedSearchComponent);
+    public void setSortSelectorComponent(final SortSelectorComponent component) {
+        registerControllerComponent(component);
+    }
+
+    @Inject
+    public void setPaginationComponent(final PaginationComponent component) {
+        registerControllerComponent(component);
+    }
+
+    @Inject
+    public void setSearchBoxComponent(final SearchBoxComponent component) {
+        registerControllerComponent(component);
+    }
+
+    @Inject
+    public void setFacetedSearchComponent(final FacetedSearchComponent component) {
+        registerControllerComponent(component);
     }
 }
