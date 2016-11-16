@@ -7,7 +7,7 @@ version := "0.1.0-SNAPSHOT"
 
 scalaVersion := "2.11.8"
 
-val sunriseFrameworkVersion = "0.14.0"
+val sunriseFrameworkVersion = "0.14.1-SNAPSHOT"
 
 lazy val root = (project in file("."))
   .enablePlugins(PlayJava)
@@ -97,6 +97,9 @@ copyI18nFiles := Def.inputTaskDyn {
 }.evaluated
 
 def runMainInCompile(dest: String, args: Seq[String]) = Def.taskDyn {
-  (runMain in Compile).toTask(s" com.commercetools.sunrise.theme.WebjarsFilesCopier $dest ${args.mkString(" ")}")
+  //toTask will always split arguments by white space, not even escaping with quotes works
+  //so here are whitespaces replaced with § to pass the arguments and then § will be replaced inside the method again
+  val command = s" com.commercetools.sunrise.theme.WebjarsFilesCopier ${dest.replace(" ", "§")} ${args.map(_.replace(" ", "§")).mkString(" ")}"
+  (runMain in Compile).toTask(command)
 }
 
