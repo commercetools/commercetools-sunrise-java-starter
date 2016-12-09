@@ -14,6 +14,16 @@
     "CTP_CLIENT_SECRET": {
       "description": "The client secret of your commercetools platform project."
     },
+    "CTP_AUTH_URL": {
+      "description": "The Auth endpoint of the commercetools platform.",
+      "value": "https://auth.sphere.io",
+      "required": false
+    },
+    "CTP_API_URL": {
+      "description": "The API endpoint of the commercetools platform.",
+      "value": "https://api.sphere.io",
+      "required": false
+    },
 
     "DISPLAYED_ATTRIBUTES": {
       "description": "Product attributes that are displayed for a specific product variant (this does not allow to select different product variants, please check soft/hard selectable attributes for that purpose). Enter the attribute names separated by commas.",
