@@ -5,7 +5,7 @@ version := "0.1.0-SNAPSHOT"
 
 scalaVersion := "2.11.8"
 
-val sunriseFrameworkVersion = "0.16.0"
+val sunriseFrameworkVersion = "0.17.0"
 
 lazy val root = (project in file("."))
   .enablePlugins(PlayJava, SunriseThemeImporterPlugin)
