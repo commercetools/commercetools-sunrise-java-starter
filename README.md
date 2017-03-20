@@ -45,4 +45,4 @@ Now open <a href="http://localhost:9000">http://localhost:9000</a> in your brows
 
 For an easy and fast deployment of your application we recommend [Heroku](https://www.heroku.com):
 
-<a href="https://heroku.com/deploy?template=https://github.com/commercetools/commercetools-sunrise-java-starter/tree/master"><img src="https://www.herokucdn.com/deploy/button.png" alt="Deploy"></a>
+<a href="https://heroku.com/deploy?template=https://github.com/commercetools/commercetools-sunrise-java-starter/tree/v0.16.0"><img src="https://www.herokucdn.com/deploy/button.png" alt="Deploy"></a>
