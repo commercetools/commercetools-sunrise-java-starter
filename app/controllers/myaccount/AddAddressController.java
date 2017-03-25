@@ -5,7 +5,7 @@ import com.commercetools.sunrise.framework.components.controllers.RegisteredComp
 import com.commercetools.sunrise.framework.reverserouters.myaccount.addressbook.AddressBookReverseRouter;
 import com.commercetools.sunrise.framework.reverserouters.myaccount.authentication.AuthenticationReverseRouter;
 import com.commercetools.sunrise.framework.template.TemplateControllerComponentsSupplier;
-import com.commercetools.sunrise.framework.template.engine.TemplateRenderer;
+import com.commercetools.sunrise.framework.template.engine.ContentRenderer;
 import com.commercetools.sunrise.myaccount.CustomerFinder;
 import com.commercetools.sunrise.myaccount.addressbook.AddressFormData;
 import com.commercetools.sunrise.myaccount.addressbook.addaddress.AddAddressControllerAction;
@@ -17,6 +17,7 @@ import io.sphere.sdk.customers.Customer;
 import play.data.FormFactory;
 import play.mvc.Result;
 
+import javax.annotation.Nullable;
 import javax.inject.Inject;
 import java.util.concurrent.CompletionStage;
 
@@ -31,7 +32,7 @@ public final class AddAddressController extends SunriseAddAddressController {
     private final AddressBookReverseRouter addressBookReverseRouter;
 
     @Inject
-    public AddAddressController(final TemplateRenderer templateRenderer,
+    public AddAddressController(final ContentRenderer contentRenderer,
                                 final FormFactory formFactory,
                                 final AddressFormData formData,
                                 final CustomerFinder customerFinder,
@@ -40,11 +41,12 @@ public final class AddAddressController extends SunriseAddAddressController {
                                 final CountryCode country,
                                 final AuthenticationReverseRouter authenticationReverseRouter,
                                 final AddressBookReverseRouter addressBookReverseRouter) {
-        super(templateRenderer, formFactory, formData, customerFinder, controllerAction, pageContentFactory, country);
+        super(contentRenderer, formFactory, formData, customerFinder, controllerAction, pageContentFactory, country);
         this.authenticationReverseRouter = authenticationReverseRouter;
         this.addressBookReverseRouter = addressBookReverseRouter;
     }
 
+    @Nullable
     @Override
     public String getTemplateName() {
         return "my-account-new-address";
