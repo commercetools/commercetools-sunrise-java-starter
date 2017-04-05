@@ -15,6 +15,12 @@ Use it as the starting point to develop your own online shop project.
 * Create a [commercetools platform project](https://admin.sphere.io/en/signup) with some data
 * Unless you modify the project to behave differently:
   * Product variants must contain a SKU without dashes `-`
+  
+## Deployment
+
+For an easy and fast deployment of your application we recommend [Heroku](https://www.heroku.com):
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 ## Run it locally
 
@@ -41,9 +47,3 @@ In any case, the output will be similar to:
 ```
 
 Now open <a href="http://localhost:9000">http://localhost:9000</a> in your browser and you should be able to access the web application using your project.
-
-## Deployment
-
-For an easy and fast deployment of your application we recommend [Heroku](https://www.heroku.com):
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
