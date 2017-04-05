@@ -1,6 +1,6 @@
 # Sunrise Java Starter Project
 [![Build Status](https://travis-ci.org/commercetools/commercetools-sunrise-java-starter.svg?branch=master)](https://travis-ci.org/commercetools/commercetools-sunrise-java-starter)
-[![Heroku](http://heroku-badge.herokuapp.com/?app=ct-sunrise-starter-prod&style=flat&svg=1)](https://ct-sunrise-starter-prod.herokuapp.com/)
+[![Heroku](http://heroku-badge.herokuapp.com/?app=ct-sunrise-starter-prod&style=flat&svg=1)](http://ct-sunrise-starter-prod.herokuapp.com/)
 
 Sunrise-based project using:
 - [Sunrise Shop Framework](https://github.com/commercetools/commercetools-sunrise-java)
