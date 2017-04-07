@@ -21,6 +21,7 @@ object TestCommon {
 
   def configCommonTestSettings(scopes: String) = Seq(
     testOptions += Tests.Argument(TestFrameworks.JUnit, "-v"),
+    javaOptions in Test += "-Dlogger.resource=logback-test.xml",
     libraryDependencies ++= Seq (
       "org.assertj" % "assertj-core" % "3.0.0" % scopes,
       "org.mockito" % "mockito-core" % "2.7.9" % scopes,
