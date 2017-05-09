@@ -43,11 +43,6 @@
       "required" : false
     },
 
-    "SALES_CATEGORY": {
-      "description": "The sales category in your project. Enter the category external ID.",
-      "value": "6",
-      "required": false
-    },
     "NEW_CATEGORY": {
       "description": "The category containing the new products in your project. Enter the category external ID.",
       "value": "1",
