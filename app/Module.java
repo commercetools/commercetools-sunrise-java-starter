@@ -9,6 +9,7 @@ import com.commercetools.sunrise.framework.injection.RequestScoped;
 import com.commercetools.sunrise.framework.localization.CountryFromSessionProvider;
 import com.commercetools.sunrise.framework.localization.CurrencyFromCountryProvider;
 import com.commercetools.sunrise.framework.localization.LocaleFromUrlProvider;
+import com.commercetools.sunrise.framework.template.cms.FileBasedCmsServiceProvider;
 import com.commercetools.sunrise.framework.template.engine.HandlebarsTemplateEngineProvider;
 import com.commercetools.sunrise.framework.template.engine.TemplateEngine;
 import com.commercetools.sunrise.framework.template.i18n.ConfigurableI18nResolverProvider;
@@ -73,6 +74,9 @@ public class Module extends AbstractModule {
         bind(CategoryTree.class).toProvider(CachedCategoryTreeProvider.class);
 
         // Binding for all template related, such as the engine, CMS and i18n
+//        bind(CmsService.class)
+//                .toProvider(FileBasedCmsServiceProvider.class)
+//                .in(Singleton.class);
         bind(TemplateEngine.class)
                 .toProvider(HandlebarsTemplateEngineProvider.class)
                 .in(Singleton.class);
@@ -157,7 +161,7 @@ public class Module extends AbstractModule {
     public CmsService provideCmsService(final Configuration configuration) {
         final String spaceId = configuration.getString("contentful.spaceId");
         final String accessToken = configuration.getString("contentful.accessToken");
-        final String productContentTypeId = "2PqfXUJwE8qSYKuM0U6w8M";
+        final String productContentTypeId = "page";
         final String pageSlugFieldId = "slug";
 
         return ContentfulCmsService.of(spaceId, accessToken, productContentTypeId, pageSlugFieldId, ForkJoinPool.commonPool());
