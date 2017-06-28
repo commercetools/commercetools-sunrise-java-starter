@@ -15,6 +15,7 @@ Use it as the starting point to develop your own online shop project.
 * Create a [commercetools platform project](https://admin.sphere.io/en/signup) with some data
 * Unless you modify the project to behave differently:
   * Product variants must contain a SKU without dashes `-`
+  * Project must have at least a currency, country and language defined, unless you specify them via Sunrise configuration
   
 ## Deployment
 
