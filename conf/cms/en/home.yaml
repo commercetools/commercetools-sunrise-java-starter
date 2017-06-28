@@ -13,11 +13,12 @@ banners[1]:
   backgroundImage: /assets/img/cms/woman2-4to3.jpg
 
 banners[2]:
-  title: <img class="hidden-xs" src="/assets/img/cms/sun-logo.png"/><br/><br/>Here comes the sun
+  title: Here comes the sun
   subtitle: FABULOUS EVERY DAY - SUMMER CHIC
   description: Between rising temperature outside and cool A/C inside, dressing for the  the summer can be a tricky business. Luckily, we pulled together the most inspiring looks for. Check out our must-to-have-it pieces.<br/><br/>The weather is heating up, but you don’t have the right outfit yet. Thankfully, we are here to help you out. Spring break is upon us and it's essential to migrate. So whether you're jetting off to Ibiza or Majorca for a party vacation or getting away to greener pastures - here are the fashion pieces we'll be stashing in our favorite getaway bags.
   linkLabel: Shop collection
   link: /en/men-clothing-shirts
+  headerImage: /assets/img/cms/sun-logo.png
   backgroundImage: /assets/img/cms/man2-8to3.jpg
 
 banners[3]:
@@ -28,7 +29,8 @@ banners[3]:
   backgroundImage: /assets/img/cms/shoes-4to3.jpg
 
 banners[4]:
-  title: <img src="/assets/img/cms/sun-logo.png"/><br/><br/>SUMMER FASHION 2016
+  title: SUMMER FASHION 2016
+  headerImage: /assets/img/cms/sun-logo.png
   backgroundImage: /assets/img/cms/blue-bg-4to3.png
 
 banners[5]:
@@ -48,7 +50,9 @@ banners[6]:
 suggestions:
   title: Get beach ready
   subtitle: Get your sun on
+  linkLabel: View all new products
+  link: /en/new
 
-viewProducts:
-  linkText: View all new products
-  linkHref: new
+header:
+  shopName: Sunrise
+  shopLogo: /assets/img/cms/logo.svg

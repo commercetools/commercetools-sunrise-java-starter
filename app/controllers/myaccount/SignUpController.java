@@ -48,6 +48,12 @@ public final class SignUpController extends SunriseSignUpController {
         return "my-account-login";
     }
 
+    @Nullable
+    @Override
+    public String getCmsPageKey() {
+        return "default";
+    }
+
     @Override
     public CompletionStage<Result> handleSuccessfulAction(final CustomerSignInResult result, final SignUpFormData formData) {
         return redirectToCall(myPersonalDetailsReverseRouter.myPersonalDetailsPageCall());

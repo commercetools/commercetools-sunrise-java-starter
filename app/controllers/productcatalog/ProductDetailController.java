@@ -46,6 +46,12 @@ public final class ProductDetailController extends SunriseProductDetailControlle
         return "pdp";
     }
 
+    @Nullable
+    @Override
+    public String getCmsPageKey() {
+        return "default";
+    }
+
     @Override
     public CompletionStage<Result> handleNotFoundProduct() {
         return completedFuture(notFound());

@@ -42,6 +42,12 @@ public final class ProductOverviewController extends SunriseProductOverviewContr
         return "pop";
     }
 
+    @Nullable
+    @Override
+    public String getCmsPageKey() {
+        return "default";
+    }
+
     @Override
     public CompletionStage<Result> handleNotFoundCategory() {
         return completedFuture(notFound());

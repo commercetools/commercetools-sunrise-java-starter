@@ -52,6 +52,12 @@ public final class CheckoutAddressController extends SunriseCheckoutAddressContr
         return "checkout-address";
     }
 
+    @Nullable
+    @Override
+    public String getCmsPageKey() {
+        return "default";
+    }
+
     @Override
     public CompletionStage<Result> handleNotFoundCart() {
         return redirectToCall(cartReverseRouter.cartDetailPageCall());

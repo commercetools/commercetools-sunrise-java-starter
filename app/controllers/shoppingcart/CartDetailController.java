@@ -33,4 +33,10 @@ public final class CartDetailController extends SunriseCartDetailController {
     public String getTemplateName() {
         return "cart";
     }
+
+    @Nullable
+    @Override
+    public String getCmsPageKey() {
+        return "default";
+    }
 }

@@ -111,6 +111,18 @@ public class Module extends AbstractModule {
         // Provide here your own bindings
     }
 
+
+    @Provides
+    @Singleton
+    public CmsService provideCmsService(final Configuration configuration) {
+        final String spaceId = configuration.getString("contentful.spaceId");
+        final String accessToken = configuration.getString("contentful.accessToken");
+        final String productContentTypeId = "page";
+        final String pageSlugFieldId = "slug";
+
+        return ContentfulCmsService.of(spaceId, accessToken, productContentTypeId, pageSlugFieldId, ForkJoinPool.commonPool());
+    }
+
     @Provides
     @RequestScoped
     @NavigationCategoryTree
@@ -154,16 +166,5 @@ public class Module extends AbstractModule {
         return PriceSelection.of(currency)
                 .withPriceCountry(country)
                 .withPriceCustomerGroupId(customerInSession.findCustomerGroupId().orElse(null));
-    }
-
-    @Provides
-    @Singleton
-    public CmsService provideCmsService(final Configuration configuration) {
-        final String spaceId = configuration.getString("contentful.spaceId");
-        final String accessToken = configuration.getString("contentful.accessToken");
-        final String productContentTypeId = "page";
-        final String pageSlugFieldId = "slug";
-
-        return ContentfulCmsService.of(spaceId, accessToken, productContentTypeId, pageSlugFieldId, ForkJoinPool.commonPool());
     }
 }

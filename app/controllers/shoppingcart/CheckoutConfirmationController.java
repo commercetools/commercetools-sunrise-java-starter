@@ -52,6 +52,12 @@ public final class CheckoutConfirmationController extends SunriseCheckoutConfirm
         return "checkout-confirmation";
     }
 
+    @Nullable
+    @Override
+    public String getCmsPageKey() {
+        return "default";
+    }
+
     @Override
     public CompletionStage<Result> handleNotFoundCart() {
         return redirectToCall(cartReverseRouter.cartDetailPageCall());

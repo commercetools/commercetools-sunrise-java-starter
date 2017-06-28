@@ -54,6 +54,12 @@ public final class ChangeAddressController extends SunriseChangeAddressControlle
         return "my-account-edit-address";
     }
 
+    @Nullable
+    @Override
+    public String getCmsPageKey() {
+        return "default";
+    }
+
     @Override
     public CompletionStage<Result> handleNotFoundCustomer() {
         return redirectToCall(authenticationReverseRouter.logInPageCall());

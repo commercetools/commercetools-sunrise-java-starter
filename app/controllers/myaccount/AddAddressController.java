@@ -52,6 +52,12 @@ public final class AddAddressController extends SunriseAddAddressController {
         return "my-account-new-address";
     }
 
+    @Nullable
+    @Override
+    public String getCmsPageKey() {
+        return "default";
+    }
+
     @Override
     public CompletionStage<Result> handleSuccessfulAction(final Customer updatedCustomer, final AddressFormData formData) {
         return redirectToCall(addressBookReverseRouter.addressBookDetailPageCall());

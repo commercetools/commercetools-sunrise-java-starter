@@ -43,6 +43,12 @@ public final class MyOrderListController extends SunriseMyOrderListController {
         return "my-account-my-orders";
     }
 
+    @Nullable
+    @Override
+    public String getCmsPageKey() {
+        return "default";
+    }
+
     @Override
     public CompletionStage<Result> handleNotFoundCustomer() {
         return redirectToCall(authenticationReverseRouter.logInPageCall());

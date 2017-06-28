@@ -54,6 +54,12 @@ public final class CheckoutShippingController extends SunriseCheckoutShippingCon
         return "checkout-shipping";
     }
 
+    @Nullable
+    @Override
+    public String getCmsPageKey() {
+        return "default";
+    }
+
     @Override
     public CompletionStage<Result> handleNotFoundCart() {
         return redirectToCall(cartReverseRouter.cartDetailPageCall());

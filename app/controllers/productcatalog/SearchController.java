@@ -33,4 +33,10 @@ public final class SearchController extends SunriseSearchController {
     public String getTemplateName() {
         return "pop";
     }
+
+    @Nullable
+    @Override
+    public String getCmsPageKey() {
+        return "default";
+    }
 }

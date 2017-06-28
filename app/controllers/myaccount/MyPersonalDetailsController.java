@@ -52,6 +52,12 @@ public final class MyPersonalDetailsController extends SunriseMyPersonalDetailsC
         return "my-account-personal-details";
     }
 
+    @Nullable
+    @Override
+    public String getCmsPageKey() {
+        return "default";
+    }
+
     @Override
     public CompletionStage<Result> handleSuccessfulAction(final Customer updatedCustomer, final MyPersonalDetailsFormData formData) {
         return redirectToCall(myPersonalDetailsReverseRouter.myPersonalDetailsPageCall());

@@ -54,6 +54,12 @@ public final class RemoveAddressController extends SunriseRemoveAddressControlle
         return "my-account-address-book";
     }
 
+    @Nullable
+    @Override
+    public String getCmsPageKey() {
+        return "default";
+    }
+
     @Override
     public CompletionStage<Result> handleNotFoundCustomer() {
         return redirectToCall(authenticationReverseRouter.logInPageCall());

@@ -41,6 +41,12 @@ public final class AddressBookDetailController extends SunriseAddressBookDetailC
         return "my-account-address-book";
     }
 
+    @Nullable
+    @Override
+    public String getCmsPageKey() {
+        return "default";
+    }
+
     @Override
     public CompletionStage<Result> handleNotFoundCustomer() {
         return redirectToCall(authenticationReverseRouter.logInPageCall());

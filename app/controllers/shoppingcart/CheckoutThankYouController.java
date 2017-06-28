@@ -39,6 +39,12 @@ public final class CheckoutThankYouController extends SunriseCheckoutThankYouCon
         return "checkout-thankyou";
     }
 
+    @Nullable
+    @Override
+    public String getCmsPageKey() {
+        return "default";
+    }
+
     @Override
     public CompletionStage<Result> handleNotFoundOrderCreated() {
         return redirectToCall(homeReverseRouter.homePageCall());

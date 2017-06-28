@@ -48,6 +48,12 @@ public final class RemoveLineItemController extends SunriseRemoveLineItemControl
         return "cart";
     }
 
+    @Nullable
+    @Override
+    public String getCmsPageKey() {
+        return "default";
+    }
+
     @Override
     public CompletionStage<Result> handleNotFoundCart() {
         return redirectToCall(cartReverseRouter.cartDetailPageCall());
