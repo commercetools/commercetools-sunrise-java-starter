@@ -1,30 +1,34 @@
 package controllers.shoppingcart;
 
-import com.commercetools.sunrise.framework.CartFinder;
-import com.commercetools.sunrise.framework.cart.cartdetail.SunriseCartDetailController;
-import com.commercetools.sunrise.framework.cart.cartdetail.viewmodels.CartDetailPageContentFactory;
 import com.commercetools.sunrise.framework.components.controllers.PageHeaderControllerComponentSupplier;
 import com.commercetools.sunrise.framework.components.controllers.RegisteredComponents;
 import com.commercetools.sunrise.framework.controllers.cache.NoCache;
+import com.commercetools.sunrise.framework.controllers.metrics.LogMetrics;
 import com.commercetools.sunrise.framework.template.TemplateControllerComponentsSupplier;
 import com.commercetools.sunrise.framework.template.engine.ContentRenderer;
 import com.commercetools.sunrise.sessions.cart.CartOperationsControllerComponentSupplier;
+import com.commercetools.sunrise.shoppingcart.CartFinder;
+import com.commercetools.sunrise.shoppingcart.content.SunriseCartContentController;
+import com.commercetools.sunrise.shoppingcart.content.viewmodels.CartPageContentFactory;
+import com.commercetools.sunrise.wishlist.MiniWishlistControllerComponent;
 
 import javax.annotation.Nullable;
 import javax.inject.Inject;
 
+@LogMetrics
 @NoCache
 @RegisteredComponents({
         TemplateControllerComponentsSupplier.class,
         PageHeaderControllerComponentSupplier.class,
-        CartOperationsControllerComponentSupplier.class
+        CartOperationsControllerComponentSupplier.class,
+        MiniWishlistControllerComponent.class
 })
-public final class CartDetailController extends SunriseCartDetailController {
+public final class CartContentController extends SunriseCartContentController {
 
     @Inject
-    public CartDetailController(final ContentRenderer contentRenderer,
-                                final CartFinder cartFinder,
-                                final CartDetailPageContentFactory pageContentFactory) {
+    public CartContentController(final ContentRenderer contentRenderer,
+                                 final CartFinder cartFinder,
+                                 final CartPageContentFactory pageContentFactory) {
         super(contentRenderer, cartFinder, pageContentFactory);
     }
 
@@ -32,11 +36,5 @@ public final class CartDetailController extends SunriseCartDetailController {
     @Override
     public String getTemplateName() {
         return "cart";
-    }
-
-    @Nullable
-    @Override
-    public String getCmsPageKey() {
-        return "default";
     }
 }

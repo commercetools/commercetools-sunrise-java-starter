@@ -50,12 +50,6 @@ public final class LogInController extends SunriseLogInController {
         return "my-account-login";
     }
 
-    @Nullable
-    @Override
-    public String getCmsPageKey() {
-        return "default";
-    }
-
     @Override
     public CompletionStage<Result> handleSuccessfulAction(final CustomerSignInResult result, final LogInFormData formData) {
         return redirectToCall(myPersonalDetailsReverseRouter.myPersonalDetailsPageCall());

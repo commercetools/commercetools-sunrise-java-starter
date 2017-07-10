@@ -11,6 +11,7 @@ import com.commercetools.sunrise.productcatalog.productoverview.ProductListFinde
 import com.commercetools.sunrise.productcatalog.productoverview.SunriseProductOverviewController;
 import com.commercetools.sunrise.productcatalog.productoverview.search.ProductOverviewSearchControllerComponentsSupplier;
 import com.commercetools.sunrise.productcatalog.productoverview.viewmodels.ProductOverviewPageContentFactory;
+import com.commercetools.sunrise.wishlist.MiniWishlistControllerComponent;
 import play.mvc.Result;
 
 import javax.annotation.Nullable;
@@ -24,7 +25,8 @@ import static java.util.concurrent.CompletableFuture.completedFuture;
 @RegisteredComponents({
         TemplateControllerComponentsSupplier.class,
         PageHeaderControllerComponentSupplier.class,
-        ProductOverviewSearchControllerComponentsSupplier.class
+        ProductOverviewSearchControllerComponentsSupplier.class,
+        MiniWishlistControllerComponent.class
 })
 public final class ProductOverviewController extends SunriseProductOverviewController {
 
@@ -40,12 +42,6 @@ public final class ProductOverviewController extends SunriseProductOverviewContr
     @Override
     public String getTemplateName() {
         return "pop";
-    }
-
-    @Nullable
-    @Override
-    public String getCmsPageKey() {
-        return "default";
     }
 
     @Override

@@ -1,17 +1,19 @@
 package controllers.shoppingcart;
 
-import com.commercetools.sunrise.framework.CartFinder;
-import com.commercetools.sunrise.framework.cart.cartdetail.viewmodels.CartDetailPageContentFactory;
-import com.commercetools.sunrise.framework.cart.removelineitem.RemoveLineItemControllerAction;
-import com.commercetools.sunrise.framework.cart.removelineitem.RemoveLineItemFormData;
-import com.commercetools.sunrise.framework.cart.removelineitem.SunriseRemoveLineItemController;
 import com.commercetools.sunrise.framework.components.controllers.PageHeaderControllerComponentSupplier;
 import com.commercetools.sunrise.framework.components.controllers.RegisteredComponents;
 import com.commercetools.sunrise.framework.controllers.cache.NoCache;
+import com.commercetools.sunrise.framework.controllers.metrics.LogMetrics;
 import com.commercetools.sunrise.framework.reverserouters.shoppingcart.cart.CartReverseRouter;
 import com.commercetools.sunrise.framework.template.TemplateControllerComponentsSupplier;
 import com.commercetools.sunrise.framework.template.engine.ContentRenderer;
 import com.commercetools.sunrise.sessions.cart.CartOperationsControllerComponentSupplier;
+import com.commercetools.sunrise.shoppingcart.CartFinder;
+import com.commercetools.sunrise.shoppingcart.content.viewmodels.CartPageContentFactory;
+import com.commercetools.sunrise.shoppingcart.remove.RemoveFromCartControllerAction;
+import com.commercetools.sunrise.shoppingcart.remove.RemoveFromCartFormData;
+import com.commercetools.sunrise.shoppingcart.remove.SunriseRemoveFromCartController;
+import com.commercetools.sunrise.wishlist.MiniWishlistControllerComponent;
 import io.sphere.sdk.carts.Cart;
 import play.data.FormFactory;
 import play.mvc.Result;
@@ -20,25 +22,27 @@ import javax.annotation.Nullable;
 import javax.inject.Inject;
 import java.util.concurrent.CompletionStage;
 
+@LogMetrics
 @NoCache
 @RegisteredComponents({
         TemplateControllerComponentsSupplier.class,
         PageHeaderControllerComponentSupplier.class,
-        CartOperationsControllerComponentSupplier.class
+        CartOperationsControllerComponentSupplier.class,
+        MiniWishlistControllerComponent.class
 })
-public final class RemoveLineItemController extends SunriseRemoveLineItemController {
+public final class RemoveFromCartController extends SunriseRemoveFromCartController {
 
     private final CartReverseRouter cartReverseRouter;
 
     @Inject
-    public RemoveLineItemController(final ContentRenderer contentRenderer,
+    public RemoveFromCartController(final ContentRenderer contentRenderer,
                                     final FormFactory formFactory,
-                                    final RemoveLineItemFormData formData,
+                                    final RemoveFromCartFormData formData,
                                     final CartFinder cartFinder,
-                                    final RemoveLineItemControllerAction removeLineItemControllerAction,
-                                    final CartDetailPageContentFactory cartDetailPageContentFactory,
+                                    final RemoveFromCartControllerAction removeFromCartControllerAction,
+                                    final CartPageContentFactory cartPageContentFactory,
                                     final CartReverseRouter cartReverseRouter) {
-        super(contentRenderer, formFactory, formData, cartFinder, removeLineItemControllerAction, cartDetailPageContentFactory);
+        super(contentRenderer, formFactory, formData, cartFinder, removeFromCartControllerAction, cartPageContentFactory);
         this.cartReverseRouter = cartReverseRouter;
     }
 
@@ -48,19 +52,13 @@ public final class RemoveLineItemController extends SunriseRemoveLineItemControl
         return "cart";
     }
 
-    @Nullable
-    @Override
-    public String getCmsPageKey() {
-        return "default";
-    }
-
     @Override
     public CompletionStage<Result> handleNotFoundCart() {
         return redirectToCall(cartReverseRouter.cartDetailPageCall());
     }
 
     @Override
-    public CompletionStage<Result> handleSuccessfulAction(final Cart updatedCart, final RemoveLineItemFormData formData) {
+    public CompletionStage<Result> handleSuccessfulAction(final Cart updatedCart, final RemoveFromCartFormData formData) {
         return redirectToCall(cartReverseRouter.cartDetailPageCall());
     }
 }
