@@ -3,6 +3,7 @@ import com.commercetools.sunrise.categorytree.CategoryTreeConfiguration;
 import com.commercetools.sunrise.categorytree.NavigationCategoryTree;
 import com.commercetools.sunrise.categorytree.NewCategoryTree;
 import com.commercetools.sunrise.cms.CmsService;
+import com.commercetools.sunrise.cms.contentful.ContentfulCmsService;
 import com.commercetools.sunrise.framework.controllers.metrics.SimpleMetricsSphereClientProvider;
 import com.commercetools.sunrise.framework.injection.RequestScoped;
 import com.commercetools.sunrise.framework.localization.CountryFromSessionProvider;
@@ -16,6 +17,8 @@ import com.commercetools.sunrise.framework.template.i18n.I18nResolver;
 import com.commercetools.sunrise.framework.viewmodels.content.carts.MiniCartViewModelFactory;
 import com.commercetools.sunrise.httpauth.HttpAuthentication;
 import com.commercetools.sunrise.httpauth.basic.BasicAuthenticationProvider;
+import com.commercetools.sunrise.productcatalog.productoverview.ProductListFinder;
+import com.commercetools.sunrise.productcatalog.productoverview.ProductListFinderByCategoryWithMatchingVariants;
 import com.commercetools.sunrise.search.facetedsearch.terms.viewmodels.AlphabeticallySortedTermFacetViewModelFactory;
 import com.commercetools.sunrise.search.facetedsearch.terms.viewmodels.CustomSortedTermFacetViewModelFactory;
 import com.commercetools.sunrise.search.facetedsearch.terms.viewmodels.TermFacetViewModelFactory;
@@ -31,12 +34,14 @@ import io.sphere.sdk.products.search.PriceSelection;
 import io.sphere.sdk.producttypes.ProductType;
 import io.sphere.sdk.producttypes.ProductTypeLocalRepository;
 import io.sphere.sdk.producttypes.queries.ProductTypeQuery;
+import play.Configuration;
 
 import javax.inject.Singleton;
 import javax.money.CurrencyUnit;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.TimeUnit;
 
 import static io.sphere.sdk.client.SphereClientUtils.blockingWait;
@@ -105,8 +110,24 @@ public class Module extends AbstractModule {
         // Binding to truncate mini cart to fit it into limited session space
         bind(MiniCartViewModelFactory.class).to(TruncatedMiniCartViewModelFactory.class);
 
+        // Binding to enable matching variants on listing products
+        // IMPORTANT: comment the following line if your project does not require this functionality, leaving it on can severely affect performance
+        bind(ProductListFinder.class).to(ProductListFinderByCategoryWithMatchingVariants.class);
+
         // Provide here your own bindings
     }
+
+
+//    @Provides
+//    @Singleton
+//    public CmsService provideCmsService(final Configuration configuration) {
+//        final String spaceId = configuration.getString("contentful.spaceId");
+//        final String accessToken = configuration.getString("contentful.accessToken");
+//        final String productContentTypeId = "page";
+//        final String pageSlugFieldId = "slug";
+//
+//        return ContentfulCmsService.of(spaceId, accessToken, productContentTypeId, pageSlugFieldId, ForkJoinPool.commonPool());
+//    }
 
     @Provides
     @RequestScoped
