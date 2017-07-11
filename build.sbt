@@ -25,7 +25,7 @@ libraryDependencies ++= Seq(
   "com.commercetools.sunrise" %% "my-account" % sunriseFrameworkVersion,
   "com.commercetools.sunrise" %% "wishlist" % sunriseFrameworkVersion,
   "com.commercetools.sunrise" %% "test-lib" % sunriseFrameworkVersion % "test,it,pt",
-  "com.commercetools.sunrise" % "commercetools-sunrise-theme" % "0.65.0",
+  "com.commercetools.sunrise" % "commercetools-sunrise-theme" % "0.66.0",
   "org.webjars" %% "webjars-play" % "2.5.0-2",
   "com.commercetools.sunrise.cms" % "cms-contentful" % "0.2.1"
 )

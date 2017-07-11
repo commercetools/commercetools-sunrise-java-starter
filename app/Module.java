@@ -76,9 +76,9 @@ public class Module extends AbstractModule {
         bind(CategoryTree.class).toProvider(CachedCategoryTreeProvider.class);
 
         // Binding for all template related, such as the engine, CMS and i18n
-//        bind(CmsService.class)
-//                .toProvider(FileBasedCmsServiceProvider.class)
-//                .in(Singleton.class);
+        bind(CmsService.class)
+                .toProvider(FileBasedCmsServiceProvider.class)
+                .in(Singleton.class);
         bind(TemplateEngine.class)
                 .toProvider(HandlebarsTemplateEngineProvider.class)
                 .in(Singleton.class);
@@ -118,16 +118,16 @@ public class Module extends AbstractModule {
     }
 
 
-    @Provides
-    @Singleton
-    public CmsService provideCmsService(final Configuration configuration) {
-        final String spaceId = configuration.getString("contentful.spaceId");
-        final String accessToken = configuration.getString("contentful.accessToken");
-        final String productContentTypeId = "page";
-        final String pageSlugFieldId = "slug";
-
-        return ContentfulCmsService.of(spaceId, accessToken, productContentTypeId, pageSlugFieldId, ForkJoinPool.commonPool());
-    }
+//    @Provides
+//    @Singleton
+//    public CmsService provideCmsService(final Configuration configuration) {
+//        final String spaceId = configuration.getString("contentful.spaceId");
+//        final String accessToken = configuration.getString("contentful.accessToken");
+//        final String productContentTypeId = "page";
+//        final String pageSlugFieldId = "slug";
+//
+//        return ContentfulCmsService.of(spaceId, accessToken, productContentTypeId, pageSlugFieldId, ForkJoinPool.commonPool());
+//    }
 
     @Provides
     @RequestScoped
