@@ -29,3 +29,4 @@ target
 
 dev.conf
 *.iml
+.DS_Store
