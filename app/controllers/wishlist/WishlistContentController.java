@@ -11,7 +11,6 @@ import com.commercetools.sunrise.wishlist.WishlistInSessionControllerComponent;
 import com.commercetools.sunrise.wishlist.content.SunriseWishlistContentController;
 import com.commercetools.sunrise.wishlist.content.viewmodels.WishlistPageContentFactory;
 
-import javax.annotation.Nullable;
 import javax.inject.Inject;
 
 @LogMetrics

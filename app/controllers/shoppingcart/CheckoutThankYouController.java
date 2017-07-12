@@ -12,7 +12,6 @@ import com.commercetools.sunrise.shoppingcart.checkout.thankyou.SunriseCheckoutT
 import com.commercetools.sunrise.shoppingcart.checkout.thankyou.viewmodels.CheckoutThankYouPageContentFactory;
 import play.mvc.Result;
 
-import javax.annotation.Nullable;
 import javax.inject.Inject;
 import java.util.concurrent.CompletionStage;
 

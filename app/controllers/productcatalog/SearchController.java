@@ -11,7 +11,6 @@ import com.commercetools.sunrise.productcatalog.productoverview.SunriseSearchCon
 import com.commercetools.sunrise.productcatalog.productoverview.search.ProductOverviewSearchControllerComponentsSupplier;
 import com.commercetools.sunrise.productcatalog.productoverview.viewmodels.ProductOverviewPageContentFactory;
 
-import javax.annotation.Nullable;
 import javax.inject.Inject;
 
 @LogMetrics

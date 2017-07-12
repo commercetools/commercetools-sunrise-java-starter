@@ -14,7 +14,6 @@ import com.commercetools.sunrise.productcatalog.home.viewmodels.HomePageContentF
 import com.commercetools.sunrise.wishlist.MiniWishlistControllerComponent;
 import play.mvc.Result;
 
-import javax.annotation.Nullable;
 import javax.inject.Inject;
 import java.util.concurrent.CompletionStage;
 

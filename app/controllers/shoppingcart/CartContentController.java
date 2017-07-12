@@ -12,7 +12,6 @@ import com.commercetools.sunrise.shoppingcart.content.SunriseCartContentControll
 import com.commercetools.sunrise.shoppingcart.content.viewmodels.CartPageContentFactory;
 import com.commercetools.sunrise.wishlist.MiniWishlistControllerComponent;
 
-import javax.annotation.Nullable;
 import javax.inject.Inject;
 
 @LogMetrics

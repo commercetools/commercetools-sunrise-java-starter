@@ -14,7 +14,6 @@ import com.commercetools.sunrise.myaccount.myorders.myorderlist.viewmodels.MyOrd
 import com.commercetools.sunrise.sessions.customer.CustomerOperationsControllerComponentSupplier;
 import play.mvc.Result;
 
-import javax.annotation.Nullable;
 import javax.inject.Inject;
 import java.util.concurrent.CompletionStage;
 
