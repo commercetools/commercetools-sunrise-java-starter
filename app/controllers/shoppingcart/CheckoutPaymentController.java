@@ -52,10 +52,14 @@ public final class CheckoutPaymentController extends SunriseCheckoutPaymentContr
         this.checkoutReverseRouter = checkoutReverseRouter;
     }
 
-    @Nullable
     @Override
     public String getTemplateName() {
         return "checkout-payment";
+    }
+
+    @Override
+    public String getCmsPageKey() {
+        return "default";
     }
 
     @Override

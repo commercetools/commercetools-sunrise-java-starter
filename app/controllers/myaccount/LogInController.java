@@ -44,10 +44,14 @@ public final class LogInController extends SunriseLogInController {
         this.myPersonalDetailsReverseRouter = myPersonalDetailsReverseRouter;
     }
 
-    @Nullable
     @Override
     public String getTemplateName() {
         return "my-account-login";
+    }
+
+    @Override
+    public String getCmsPageKey() {
+        return "default";
     }
 
     @Override

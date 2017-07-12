@@ -46,10 +46,14 @@ public final class RemoveFromCartController extends SunriseRemoveFromCartControl
         this.cartReverseRouter = cartReverseRouter;
     }
 
-    @Nullable
     @Override
     public String getTemplateName() {
         return "cart";
+    }
+
+    @Override
+    public String getCmsPageKey() {
+        return "default";
     }
 
     @Override

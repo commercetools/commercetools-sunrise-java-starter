@@ -50,10 +50,14 @@ public final class ChangeAddressController extends SunriseChangeAddressControlle
         this.addressBookReverseRouter = addressBookReverseRouter;
     }
 
-    @Nullable
     @Override
     public String getTemplateName() {
         return "my-account-edit-address";
+    }
+
+    @Override
+    public String getCmsPageKey() {
+        return "default";
     }
 
     @Override

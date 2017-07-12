@@ -38,10 +38,14 @@ public final class ProductOverviewController extends SunriseProductOverviewContr
         super(contentRenderer, categoryFinder, productListFinder, pageContentFactory);
     }
 
-    @Nullable
     @Override
     public String getTemplateName() {
         return "pop";
+    }
+
+    @Override
+    public String getCmsPageKey() {
+        return "default";
     }
 
     @Override
