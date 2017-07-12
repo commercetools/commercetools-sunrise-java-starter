@@ -46,10 +46,14 @@ public final class ChangeQuantityInCartController extends SunriseChangeQuantityI
         this.cartReverseRouter = cartReverseRouter;
     }
 
-    @Nullable
     @Override
     public String getTemplateName() {
         return "cart";
+    }
+
+    @Override
+    public String getCmsPageKey() {
+        return "default";
     }
 
     @Override

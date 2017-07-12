@@ -52,10 +52,14 @@ public final class CheckoutShippingController extends SunriseCheckoutShippingCon
         this.checkoutReverseRouter = checkoutReverseRouter;
     }
 
-    @Nullable
     @Override
     public String getTemplateName() {
         return "checkout-shipping";
+    }
+
+    @Override
+    public String getCmsPageKey() {
+        return "default";
     }
 
     @Override

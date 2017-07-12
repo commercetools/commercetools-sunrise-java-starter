@@ -44,10 +44,14 @@ public final class ProductDetailController extends SunriseProductDetailControlle
         this.productReverseRouter = productReverseRouter;
     }
 
-    @Nullable
     @Override
     public String getTemplateName() {
         return "pdp";
+    }
+
+    @Override
+    public String getCmsPageKey() {
+        return "default";
     }
 
     @Override

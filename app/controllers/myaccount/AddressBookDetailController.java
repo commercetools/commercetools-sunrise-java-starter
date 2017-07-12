@@ -37,10 +37,14 @@ public final class AddressBookDetailController extends SunriseAddressBookDetailC
         this.authenticationReverseRouter = authenticationReverseRouter;
     }
 
-    @Nullable
     @Override
     public String getTemplateName() {
         return "my-account-address-book";
+    }
+
+    @Override
+    public String getCmsPageKey() {
+        return "default";
     }
 
     @Override

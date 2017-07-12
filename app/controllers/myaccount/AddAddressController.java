@@ -50,10 +50,14 @@ public final class AddAddressController extends SunriseAddAddressController {
         this.addressBookReverseRouter = addressBookReverseRouter;
     }
 
-    @Nullable
     @Override
     public String getTemplateName() {
         return "my-account-new-address";
+    }
+
+    @Override
+    public String getCmsPageKey() {
+        return "default";
     }
 
     @Override

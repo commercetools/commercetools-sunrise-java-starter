@@ -38,13 +38,11 @@ public final class HomeController extends SunriseHomeController {
         this.homeReverseRouter = homeReverseRouter;
     }
 
-    @Nullable
     @Override
     public String getTemplateName() {
         return "home";
     }
 
-    @Nullable
     @Override
     public String getCmsPageKey() {
         return "home";

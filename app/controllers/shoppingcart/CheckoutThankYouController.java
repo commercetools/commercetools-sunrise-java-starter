@@ -35,10 +35,14 @@ public final class CheckoutThankYouController extends SunriseCheckoutThankYouCon
         this.homeReverseRouter = homeReverseRouter;
     }
 
-    @Nullable
     @Override
     public String getTemplateName() {
         return "checkout-thankyou";
+    }
+
+    @Override
+    public String getCmsPageKey() {
+        return "default";
     }
 
     @Override

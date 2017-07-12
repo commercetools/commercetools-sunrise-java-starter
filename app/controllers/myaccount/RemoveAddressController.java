@@ -50,10 +50,14 @@ public final class RemoveAddressController extends SunriseRemoveAddressControlle
         this.addressBookReverseRouter = addressBookReverseRouter;
     }
 
-    @Nullable
     @Override
     public String getTemplateName() {
         return "my-account-address-book";
+    }
+
+    @Override
+    public String getCmsPageKey() {
+        return "default";
     }
 
     @Override

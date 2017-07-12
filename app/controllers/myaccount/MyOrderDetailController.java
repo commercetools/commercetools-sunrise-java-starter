@@ -43,10 +43,14 @@ public final class MyOrderDetailController extends SunriseMyOrderDetailControlle
         this.authenticationReverseRouter = authenticationReverseRouter;
     }
 
-    @Nullable
     @Override
     public String getTemplateName() {
         return "my-account-my-orders-order";
+    }
+
+    @Override
+    public String getCmsPageKey() {
+        return "default";
     }
 
     @Override

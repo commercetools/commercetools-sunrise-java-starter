@@ -30,9 +30,13 @@ public final class SearchController extends SunriseSearchController {
         super(contentRenderer, productListFinder, pageContentFactory);
     }
 
-    @Nullable
     @Override
     public String getTemplateName() {
         return "pop";
+    }
+
+    @Override
+    public String getCmsPageKey() {
+        return "default";
     }
 }

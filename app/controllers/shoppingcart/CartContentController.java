@@ -32,9 +32,13 @@ public final class CartContentController extends SunriseCartContentController {
         super(contentRenderer, cartFinder, pageContentFactory);
     }
 
-    @Nullable
     @Override
     public String getTemplateName() {
         return "cart";
+    }
+
+    @Override
+    public String getCmsPageKey() {
+        return "default";
     }
 }

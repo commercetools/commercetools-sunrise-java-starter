@@ -48,10 +48,14 @@ public final class MyPersonalDetailsController extends SunriseMyPersonalDetailsC
         this.authenticationReverseRouter = authenticationReverseRouter;
     }
 
-    @Nullable
     @Override
     public String getTemplateName() {
         return "my-account-personal-details";
+    }
+
+    @Override
+    public String getCmsPageKey() {
+        return "default";
     }
 
     @Override
