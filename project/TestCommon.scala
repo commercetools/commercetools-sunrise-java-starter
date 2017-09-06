@@ -5,9 +5,11 @@ import sbt._
 
 object TestCommon {
 
+  val allTestScopes = "test,it,pt"
+
   lazy val PlayTest: sbt.Configuration = config("pt") extend Test
 
-  lazy val defaultSettings: Def.SettingsDefinition = itBaseTestSettings ++ ptBaseTestSettings ++ configCommonTestSettings("test,it,pt") ++ configPlayDependencies("it,pt")
+  lazy val defaultSettings: Def.SettingsDefinition = itBaseTestSettings ++ ptBaseTestSettings ++ configCommonTestSettings(allTestScopes) ++ configPlayDependencies("it,pt")
 
   lazy val settingsWithoutPlayTest: Def.SettingsDefinition = itBaseTestSettings ++ configCommonTestSettings("test,it") ++ configPlayDependencies("it")
 
@@ -32,7 +34,7 @@ object TestCommon {
     ),
     libraryDependencies ++= Seq (
       "org.assertj" % "assertj-core" % "3.6.2" % scopes,
-      "org.mockito" % "mockito-core" % "2.7.9" % scopes
+      "org.mockito" % "mockito-core" % "2.8.47" % scopes
     ),
     dependencyOverrides ++= Set (
       "junit" % "junit" % "4.12" % scopes
@@ -40,6 +42,7 @@ object TestCommon {
   )
 
   def configPlayDependencies(scopes: String) = Seq(
+    parallelExecution := false,
     libraryDependencies ++= Seq (
       javaWs % scopes,
       PlayImport.component("play-test") % scopes

@@ -5,7 +5,9 @@ version := "0.1.0-SNAPSHOT"
 
 scalaVersion := "2.11.8"
 
-val sunriseFrameworkVersion = "1.0.0-M5"
+val sunriseFrameworkVersion = "1.0.0-M6"
+val sunriseThemeVersion = "0.70.0"
+val sunriseEmailVersion = "0.3.0"
 
 lazy val root = (project in file("."))
   .enablePlugins(PlayJava, SunriseThemeImporterPlugin)
@@ -25,6 +27,7 @@ libraryDependencies ++= Seq(
   "com.commercetools.sunrise" %% "my-account" % sunriseFrameworkVersion,
   "com.commercetools.sunrise" %% "wishlist" % sunriseFrameworkVersion,
   "com.commercetools.sunrise" %% "test-lib" % sunriseFrameworkVersion % "test,it,pt",
-  "com.commercetools.sunrise" % "commercetools-sunrise-theme" % "0.66.0",
+  "com.commercetools.sunrise" % "commercetools-sunrise-theme" % sunriseThemeVersion,
+  "com.commercetools.sunrise.email" % "email-smtp" % sunriseEmailVersion,
   "org.webjars" %% "webjars-play" % "2.5.0-2"
 )

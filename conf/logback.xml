@@ -3,32 +3,18 @@
 
   <conversionRule conversionWord="coloredLevel" converterClass="play.api.libs.logback.ColoredLevel" />
 
-  <appender name="FILE" class="ch.qos.logback.core.FileAppender">
-    <file>${application.home:-.}/logs/application.log</file>
-    <encoder>
-      <pattern>%date [%level] from %logger in %thread - %message%n%xException</pattern>
-    </encoder>
-  </appender>
-
   <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
     <encoder>
       <pattern>%coloredLevel %logger{15} - %message%n%xException{10}</pattern>
     </encoder>
   </appender>
 
-  <appender name="ASYNCFILE" class="ch.qos.logback.classic.AsyncAppender">
-    <appender-ref ref="FILE" />
-  </appender>
-
-  <appender name="ASYNCSTDOUT" class="ch.qos.logback.classic.AsyncAppender">
-    <appender-ref ref="STDOUT" />
-  </appender>
-
   <logger name="play" level="INFO" />
   <logger name="application" level="DEBUG" />
   <logger name="com.commercetools.sunrise.framework.hooks.ComponentRegistry" level="OFF" />
-  <logger name="com.commercetools.sunrise.framework.controllers.metrics.MetricsLogger" level="DEBUG" />
   <logger name="com.commercetools.sunrise.common.pages.PageDataJson" level="OFF" />
+  <logger name="com.commercetools.sunrise.framework.controllers.metrics.MetricsLogger" level="DEBUG" />
+  <logger name="com.commercetools.sunrise.email.EmailSender" level="DEBUG" />
   <logger name="com.github.jknack.handlebars.HelperRegistry" level="ERROR" />
 
   <!-- Off these ones as they are annoying, and anyway we manage configuration ourselves -->
@@ -38,8 +24,7 @@
   <logger name="com.gargoylesoftware.htmlunit.javascript" level="OFF" />
 
   <root level="WARN">
-    <appender-ref ref="ASYNCFILE" />
-    <appender-ref ref="ASYNCSTDOUT" />
+    <appender-ref ref="STDOUT" />
   </root>
 
 </configuration>
