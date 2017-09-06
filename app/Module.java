@@ -27,6 +27,8 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
 import com.google.inject.name.Names;
 import com.neovisionaries.i18n.CountryCode;
+import email.smtp.EmailSenderProvider;
+import com.commercetools.sunrise.email.EmailSender;
 import io.sphere.sdk.categories.CategoryTree;
 import io.sphere.sdk.client.SphereClient;
 import io.sphere.sdk.products.search.PriceSelection;
@@ -81,6 +83,11 @@ public class Module extends AbstractModule {
                 .in(Singleton.class);
         bind(I18nResolver.class)
                 .toProvider(ConfigurableI18nResolverProvider.class)
+                .in(Singleton.class);
+
+        // Bindings fo email sender
+        bind(EmailSender.class)
+                .toProvider(EmailSenderProvider.class)
                 .in(Singleton.class);
 
         // Bindings for all user context related
