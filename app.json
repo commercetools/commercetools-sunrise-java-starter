@@ -25,6 +25,15 @@
       "required": false
     },
 
+    "BASIC_AUTH_CREDENTIALS": {
+      "description": "OPTIONAL! LEAVE EMPTY IF YOU DO NOT WANT TO ENABLE BASIC AUTHENTICATION. If you only want authorized users to access your website, please enter here the required credentials separated by colon ':'. For example, for a username 'john' and password 'secret', enter 'john:secret'",
+      "required": false
+    },
+    "BASIC_AUTH_REALM": {
+      "description": "Authentication realm that identifies your application. This is only necessary when basic authentication is enabled.",
+      "value": "Sunrise Demo",
+      "required": false
+    },
     "DISPLAYED_ATTRIBUTES": {
       "description": "Product attributes that are displayed for a specific product variant (this does not allow to select different product variants, please check soft/hard selectable attributes for that purpose). Enter the attribute names separated by commas.",
       "value": "colorFreeDefinition, designer",
@@ -52,16 +61,6 @@
     "HOME_SUGGESTIONS_CATEGORIES": {
       "description": "The categories to which the products shown in the home page suggestions belong. Enter the category external IDs separated by commas.",
       "value": "29, 37, 22, 28",
-      "required": false
-    },
-
-    "BASIC_AUTH_CREDENTIALS": {
-      "description": "OPTIONAL! LEAVE EMPTY IF YOU DO NOT WANT TO ENABLE BASIC AUTHENTICATION. If you only want authorized users to access your website, please enter here the required credentials separated by colon ':'. For example, for a username 'john' and password 'secret', enter 'john:secret'",
-      "required": false
-    },
-    "BASIC_AUTH_REALM": {
-      "description": "Authentication realm that identifies your application. This is only necessary when basic authentication is enabled.",
-      "value": "Sunrise Demo",
       "required": false
     },
     "APPLICATION_SECRET": {
