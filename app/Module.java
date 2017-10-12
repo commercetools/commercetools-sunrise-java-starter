@@ -1,3 +1,4 @@
+import cms.contentful.ContentfulCmsServiceProvider;
 import com.commercetools.sunrise.cms.CmsService;
 import com.commercetools.sunrise.ctp.categories.CachedCategoryTreeProvider;
 import com.commercetools.sunrise.ctp.categories.CategoriesSettings;
@@ -17,6 +18,7 @@ import com.commercetools.sunrise.framework.template.i18n.I18nResolver;
 import com.commercetools.sunrise.framework.viewmodels.content.carts.MiniCartViewModelFactory;
 import com.commercetools.sunrise.httpauth.HttpAuthentication;
 import com.commercetools.sunrise.httpauth.basic.BasicAuthenticationProvider;
+import com.commercetools.sunrise.play.configuration.SunriseConfigurationException;
 import com.commercetools.sunrise.productcatalog.productoverview.ProductListFinder;
 import com.commercetools.sunrise.productcatalog.productoverview.ProductListFinderByCategoryWithMatchingVariants;
 import com.commercetools.sunrise.search.facetedsearch.terms.viewmodels.AlphabeticallySortedTermFacetViewModelFactory;
@@ -75,9 +77,6 @@ public class Module extends AbstractModule {
         bind(CategoryTree.class).toProvider(CachedCategoryTreeProvider.class);
 
         // Binding for all template related, such as the engine, CMS and i18n
-        bind(CmsService.class)
-                .toProvider(FileBasedCmsServiceProvider.class)
-                .in(Singleton.class);
         bind(TemplateEngine.class)
                 .toProvider(HandlebarsTemplateEngineProvider.class)
                 .in(Singleton.class);
@@ -164,5 +163,22 @@ public class Module extends AbstractModule {
         return PriceSelection.of(currency)
                 .withPriceCountry(country)
                 .withPriceCustomerGroupId(customerInSession.findCustomerGroupId().orElse(null));
+    }
+
+    /**
+     * Provides the CMS Service for Contentful if the configuration is provided, otherwise provides a simple File-Based CMS.
+     * If you do not plan on using Contentful, please remove the dependency from {@code build.sbt}, the file
+     * {@link ContentfulCmsServiceProvider} and directly call the {@link FileBasedCmsServiceProvider} in the code below.
+     * @return the CMS Service used, either Contentful if configured or a simple file based CMS
+     */
+    @Provides
+    @Singleton
+    public CmsService provideCmsService(final ContentfulCmsServiceProvider contentfulCmsServiceProvider,
+                                        final FileBasedCmsServiceProvider fileBasedCmsServiceProvider) {
+        try {
+            return contentfulCmsServiceProvider.get();
+        } catch (SunriseConfigurationException e) {
+            return fileBasedCmsServiceProvider.get();
+        }
     }
 }

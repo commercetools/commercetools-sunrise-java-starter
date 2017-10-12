@@ -29,5 +29,7 @@ libraryDependencies ++= Seq(
   "com.commercetools.sunrise" %% "test-lib" % sunriseFrameworkVersion % "test,it,pt",
   "com.commercetools.sunrise" % "commercetools-sunrise-theme" % sunriseThemeVersion,
   "com.commercetools.sunrise.email" % "email-smtp" % sunriseEmailVersion,
+  // Dependency to Contentful CMS, remove if you do not plan to use it
+  "com.commercetools.sunrise.cms" % "cms-contentful" % "0.2.1",
   "org.webjars" %% "webjars-play" % "2.5.0-2"
 )

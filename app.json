@@ -63,6 +63,16 @@
       "value": "29, 37, 22, 28",
       "required": false
     },
+
+    "CONTENTFUL_SPACE_ID": {
+      "description": "The API Space ID for your Contentful CMS project. Leave empty if you do not want to use Contentful CMS.",
+      "required": false
+    },
+    "CONTENTFUL_ACCESS_TOKEN": {
+      "description": "The API Access Token for your Contentful CMS project. Leave empty if you do not want to use Contentful CMS.",
+      "required": false
+    },
+
     "APPLICATION_SECRET": {
       "description": "The secret key is used to secure cryptographics functions. Anyone that can get access to the application secret will be able to generate any session they please, effectively allowing them to log in to your system as any user they please. If you deploy your application to several instances be sure to use the same key.",
       "generator": "secret"
