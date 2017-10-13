@@ -23,7 +23,7 @@ For an easy and fast deployment of your application we recommend [Heroku](https:
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
-This will create a Sunrise application in Heroku with the configuration provided. If you want to modify the source code of your application, follow [Git Cloning Existing Heroku Applications](https://devcenter.heroku.com/articles/git-clone-heroku-app).
+This will take you to the configuration page to create a Sunrise application in Heroku. Once you have create it, you can access and modify the source code of your application via Git, as explained in [Git Cloning Existing Heroku Applications](https://devcenter.heroku.com/articles/git-clone-heroku-app).
 
 If Heroku reports that you have cloned an empty repository, go to the project folder and execute the following commands:
 ```bash
