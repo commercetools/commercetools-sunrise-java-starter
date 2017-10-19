@@ -36,11 +36,13 @@ git pull origin master
 First, put the credentials of your commercetools platform project in `conf/dev.conf` as follows:
 
 ```properties
-ctp.projectKey = your-project-key
-ctp.clientId = your-client-id
-ctp.clientSecret = your-client-secret
-ctp.authUrl = "https://auth.sphere.io"
-ctp.apiUrl = "https://api.sphere.io"
+sunrise.ctp.client {
+  projectKey = your-project-key
+  clientId = your-client-id
+  clientSecret = your-client-secret
+  authUrl = "https://auth.sphere.io"
+  apiUrl = "https://api.sphere.io"
+}
 ```
 
 If you have [SBT](http://www.scala-sbt.org/) on your computer you can run it with `sbt ~run`. Otherwise you can use the [Activator](https://www.lightbend.com/community/core-tools/activator-and-sbt) found in the project to run it locally:
