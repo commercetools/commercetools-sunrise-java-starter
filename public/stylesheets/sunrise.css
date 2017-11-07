@@ -30,3 +30,91 @@
 .my-account-sidebar .my-account-sidebar-items:nth-child(7) {
     display: none;
 }
+
+
+
+@media screen and (min-width: 768px) {
+    body {
+        padding-top:0;
+        background-color: #F0F0F0;
+    }
+}
+
+.link-custom {
+  font-size: 14px;
+  padding-left: 5px;
+  text-transform: none;
+  letter-spacing: 0px;
+}
+
+.link-icon-color {
+  color: #00a0f0;
+}
+
+.header {
+  background-color: #F0F0F0;
+}
+
+.nav-list .list-item-group {
+  border: none;
+  padding: 15px;
+  color: #000000;
+}
+
+.navbar {
+  background-color: #F0F0F0;
+}
+
+.navbar-collapse collapse {
+  background-color:  #00a0f0;
+}
+
+.navbar-fixed-bottom .navbar-collapse, .navbar-fixed-top .navbar-collapse {
+  background-color:  #FFF;
+}
+
+.menu-component {
+  background-color: #fff;
+  height: 63px;
+  padding-top: 10px;
+}
+
+
+.logo-search {
+  background-color:  #00a0f0;
+}
+
+.logo-link,
+.login-links,
+.shopping-cart-links {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  list-style: none;
+  margin-bottom: 0;
+  min-height: 90px;
+}
+
+.login-links,
+.shopping-cart-links {
+  padding-top: 25px;
+}
+.shopping-cart-links {
+  background-color: #ffaf00;
+  margin-right: -15px;
+}
+
+.login-in-li {
+  list-style: none;
+  font-size: 26px;
+  color: #fff;
+}
+
+.shopping-cart-li {
+  list-style: none;
+  font-size: 26px;
+  color: #fff;
+}
+
+body {
+  padding-top: 200px;
+}
