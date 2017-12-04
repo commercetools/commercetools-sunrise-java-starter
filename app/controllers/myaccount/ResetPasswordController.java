@@ -30,10 +30,10 @@ public final class ResetPasswordController extends SunriseResetPasswordControlle
 
     @Inject
     ResetPasswordController(final ContentRenderer contentRenderer, final FormFactory formFactory,
-                                   final ResetPasswordFormData formData,
-                                   final ResetPasswordControllerAction controllerAction,
-                                   final ResetPasswordPageContentFactory pageContentFactory,
-                                   final AuthenticationReverseRouter authenticationReverseRouter) {
+                            final ResetPasswordFormData formData,
+                            final ResetPasswordControllerAction controllerAction,
+                            final ResetPasswordPageContentFactory pageContentFactory,
+                            final AuthenticationReverseRouter authenticationReverseRouter) {
         super(contentRenderer, formFactory, formData, controllerAction, pageContentFactory);
         this.authenticationReverseRouter = authenticationReverseRouter;
     }
