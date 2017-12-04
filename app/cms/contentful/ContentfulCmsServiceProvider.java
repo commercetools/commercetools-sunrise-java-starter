@@ -10,7 +10,7 @@ import javax.inject.Provider;
 import java.util.Optional;
 import java.util.concurrent.ForkJoinPool;
 
-public class ContentfulCmsServiceProvider implements Provider<CmsService> {
+public final class ContentfulCmsServiceProvider implements Provider<CmsService> {
 
     private static final String CONFIG_PATH = "sunrise.cms.contentful";
     private static final String CONFIG_SPACE_ID = "spaceId";

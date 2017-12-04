@@ -132,21 +132,4 @@ public class Module extends AbstractModule {
                 .withPriceCountry(country)
                 .withPriceCustomerGroupId(customerInSession.findCustomerGroupId().orElse(null));
     }
-
-    /**
-     * Provides the CMS Service for Contentful if the configuration is provided, otherwise provides a simple File-Based CMS.
-     * If you do not plan on using Contentful, please remove the dependency from {@code build.sbt}, the file
-     * {@link ContentfulCmsServiceProvider} and directly call the {@link FileBasedCmsServiceProvider} in the code below.
-     * @return the CMS Service used, either Contentful if configured or a simple file based CMS
-     */
-    @Provides
-    @Singleton
-    public CmsService provideCmsService(final ContentfulCmsServiceProvider contentfulCmsServiceProvider,
-                                        final FileBasedCmsServiceProvider fileBasedCmsServiceProvider) {
-        try {
-            return contentfulCmsServiceProvider.get();
-        } catch (SunriseConfigurationException e) {
-            return fileBasedCmsServiceProvider.get();
-        }
-    }
 }
