@@ -16,7 +16,7 @@ Use it as the starting point to develop your own online shop project.
 * Unless you modify the project to behave differently:
   * Product variants must contain a SKU without dashes `-`
   * Project must have at least a currency, country and language defined (unless you specify them via Sunrise configuration)
-  
+
 ## Deployment
 
 For an easy and fast deployment of your application we recommend [Heroku](https://www.heroku.com):
@@ -25,8 +25,9 @@ For an easy and fast deployment of your application we recommend [Heroku](https:
 
 This will take you to the configuration page to create a Sunrise application in Heroku. Once you have created it, you can access and modify the source code of your application via Git, as explained in [Git Cloning Existing Heroku Applications](https://devcenter.heroku.com/articles/git-clone-heroku-app).
 
-If Heroku reports that **you have cloned an empty repository**, go to the project folder and execute the following commands:
+If Heroku reports that **you have cloned an empty repository** execute the following commands:
 ```bash
+cd <project-folder>
 git remote add origin https://github.com/commercetools/commercetools-sunrise-java-starter.git
 git pull origin master
 ```
@@ -48,7 +49,7 @@ sunrise.ctp.client {
 
 If you have [SBT](http://www.scala-sbt.org/) on your computer you can run it with `sbt ~run`. Otherwise you can use the [Activator](https://www.lightbend.com/community/core-tools/activator-and-sbt) found in the project to run it locally:
 
-* on Linux/Mac: `./activator ~run` 
+* on Linux/Mac: `./activator ~run`
 * on Windows: `activator ~run`
 
 In any case, the output will be similar to:
