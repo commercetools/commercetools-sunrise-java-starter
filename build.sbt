@@ -5,7 +5,7 @@ version := "0.1.0-SNAPSHOT"
 
 scalaVersion := "2.11.8"
 
-val sunriseFrameworkVersion = "1.0.0-M9"
+val sunriseFrameworkVersion = "1.0.0-M9.1"
 val sunriseThemeVersion = "0.72.0"
 val sunriseEmailVersion = "0.3.0"
 
