@@ -7,7 +7,7 @@ Sunrise-based project using:
 - [Sunrise Theme](https://github.com/commercetools/commercetools-sunrise-theme)
 - [Play Web Framework 2.5.x](https://www.playframework.com/documentation/2.5.x/Home)
 
-Use it as the starting point to develop your own online shop project.
+Use it as a starting point to develop your own online shop project.
 
 ## Preconditions
 
@@ -19,7 +19,7 @@ Use it as the starting point to develop your own online shop project.
 
 ## Deployment
 
-For an easy and fast deployment of your application we recommend [Heroku](https://www.heroku.com):
+For an easy and fast deployment of your application, we recommend [Heroku](https://www.heroku.com):
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
@@ -35,7 +35,7 @@ git pull origin master
 
 ## Run it locally
 
-First, put the credentials of your commercetools platform project in `conf/dev.conf` as follows:
+First, clone this repository onto your local machine. Next, create a new file named `dev.conf` inside the `conf` folder and insert the credentials of your commercetools platform project as follows:
 
 ```properties
 sunrise.ctp.client {
@@ -47,7 +47,7 @@ sunrise.ctp.client {
 }
 ```
 
-If you have [SBT](http://www.scala-sbt.org/) on your computer you can run it with `sbt ~run`. Otherwise you can use the [Activator](https://www.lightbend.com/community/core-tools/activator-and-sbt) found in the project to run it locally:
+If you have [SBT](http://www.scala-sbt.org/) on your computer, you can run it with `sbt ~run`. Otherwise you can use the [Activator](https://www.lightbend.com/community/core-tools/activator-and-sbt) found in the project to run it locally:
 
 * on Linux/Mac: `./activator ~run`
 * on Windows: `activator ~run`
