@@ -2,8 +2,8 @@
 [![Build Status](https://travis-ci.org/commercetools/commercetools-sunrise-java-starter.svg?branch=master)](https://travis-ci.org/commercetools/commercetools-sunrise-java-starter)
 [![Heroku](http://heroku-badge.herokuapp.com/?app=ct-sunrise-starter-prod&style=flat&svg=1)](http://ct-sunrise-starter-prod.herokuapp.com/)
 
-> :warning: **The Sunrise Java Shop Framework is no longer maintained.**
-If you would nevertheless like to use it for your own developments you should fork this repository under the given license and continue developing your version, but please be aware that there will be no more updates and no support provided to this framework.
+> :warning: **The [Sunrise Java Shop Framework](https://github.com/commercetools/commercetools-sunrise-java) is no longer maintained.**
+If you would nevertheless like to use it for your own developments you should fork the [framework's repository](https://github.com/commercetools/commercetools-sunrise-java) under the given license and continue developing your version, but please be aware that there will be no more updates and no support provided to this framework.
 
 Sunrise-based project using:
 - [Sunrise Shop Framework](https://github.com/commercetools/commercetools-sunrise-java)
