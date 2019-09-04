@@ -15,7 +15,7 @@ Use it as a starting point to develop your own online shop project.
 ## Preconditions
 
 * Install [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (version >= 1.8.0_92)
-* Create a [commercetools platform project](https://admin.sphere.io/en/signup) with some data
+* Create a [commercetools platform project](https://mc.commercetools.com/) with some data
 * Unless you modify the project to behave differently:
   * Product variants must contain a SKU without dashes `-`
   * Project must have at least a currency, country and language defined (unless you specify them via Sunrise configuration)
